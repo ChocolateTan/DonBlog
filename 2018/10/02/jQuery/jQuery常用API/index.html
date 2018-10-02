@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>jQuery常用API | Don Blog</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="jQuery常用API | Don Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Summary Introduction Android Android Recat Native AndroidStudio&amp;amp;C++ Android GoogleMap与ScrollView冲突 Android Fresco Note Android OnLowMemory和OnTrimMemory Android L 权限 Android RecyclerView Note Andro">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Don Blog">
+<meta property="og:url" content="https://chocolatetan.github.io/DonBlog/SUMMARY.html">
+<meta property="og:site_name" content="Don Blog">
+<meta property="og:description" content="Summary Introduction Android Android Recat Native AndroidStudio&amp;amp;C++ Android GoogleMap与ScrollView冲突 Android Fresco Note Android OnLowMemory和OnTrimMemory Android L 权限 Android RecyclerView Note Andro">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-10-02T08:50:28.937Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Don Blog">
+<meta name="twitter:description" content="Summary Introduction Android Android Recat Native AndroidStudio&amp;amp;C++ Android GoogleMap与ScrollView冲突 Android Fresco Note Android OnLowMemory和OnTrimMemory Android L 权限 Android RecyclerView Note Andro">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link rel="stylesheet" href="/css/style.css">
+
+<link rel="stylesheet" href="/css/hl_theme/atom-light.css">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/photoswipe/4.1.2/photoswipe.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/photoswipe/4.1.2/default-skin/default-skin.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
+
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="false">
+</div>
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>Don Tam</span>
+</div>
+
+<div class="icon">
+    
+    <a class="rss" title="rss" href="/atom.xml" target="_blank"></a>
+    
+    
+    <a class="github" title="github" href="https://github.com/ChocolateTan" target="_blank"></a>
+    
+    
+    <a class="facebook" title="facebook" href="https://www.facebook.com/DonDonDonTam" target="_blank"></a>
+    
+    
+    
+    
+    <a class="instagram" title="instagram" href="https://www.instagram.com/dondontam/" target="_blank"></a>
+    
+    
+    
+    <a class="weibo" title="weibo" href="https://weibo.com/u/1951795245/" target="_blank"></a>
+    
+    
+    <a class="email" title="email" href="mailto:390032295@qq.com"></a>
+    
+</div>
+
+
+
+<ul>
+    <li class="all active">全部文章</li>
+    
+    <li data-rel="git"> git </li>
+    
+    <li data-rel="MySQL"> MySQL </li>
+    
+    <li data-rel="CShape"> CShape </li>
+    
+    <li data-rel="cpp"> cpp </li>
+    
+    <li data-rel="Hadoop"> Hadoop </li>
+    
+    <li data-rel="Java"> Java </li>
+    
+    <li data-rel="php"> php </li>
+    
+    <li data-rel="ReactNative"> ReactNative </li>
+    
+    <li data-rel="es6"> es6 </li>
+    
+    <li data-rel="Android"> Android </li>
+    
+    <li data-rel="flutter"> flutter </li>
+    
+    <li data-rel="hybrid"> hybrid </li>
+    
+    <li data-rel="iOS"> iOS </li>
+    
+    <li data-rel="jQuery"> jQuery </li>
+    
+    <li data-rel="python"> python </li>
+    
+    <li data-rel="xamarin"> xamarin </li>
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    </div>
+    <div><a style="border-right: 1px solid #fff; width: 49%"  class="about site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="77">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode==13){return false;}">
+        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
+        <i class="cross"></i>
+        <span>
+        <label for="tagswitch">Tags:</label>
+        <input id="tagswitch" type="checkbox">
+    </span>
+    </form>
+    <div class="tags-list">
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class="git "
+           href="/2018/10/02/git/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="git 操作">git 操作</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class=""
+           href="/2018/10/02/hello-world/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-date" title="2018-10-02 16:50:28">2018/10/02</span>
+        </a>
+        
+        <a  class="MySQL "
+           href="/2018/10/02/mysqlchang-yong-yu-ju/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="MySQL">MySQL</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class=""
+           href="/2018/10/02/iOS/README/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2018-10-02 16:50:28">2018/10/02</span>
+        </a>
+        
+        <a  class=""
+           href="/2018/10/02/PHP/README/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2018-10-02 16:50:28">2018/10/02</span>
+        </a>
+        
+        <a  class="CShape "
+           href="/2018/10/02/CShape/CShape不重复启动窗口/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="C#不重复启动窗口">C#不重复启动窗口</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="CShape "
+           href="/2018/10/02/CShape/iis发布含有视频的网站/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="iis发布含有视频的网站">iis发布含有视频的网站</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="CShape "
+           href="/2018/10/02/CShape/CShape使用Mutex实现程序单实例运行/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="C#使用Mutex实现程序单实例运行">C#使用Mutex实现程序单实例运行</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="cpp "
+           href="/2018/10/02/C++/CPPFormat的用法总结/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="C++ Format的用法总结">C++ Format的用法总结</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="CShape "
+           href="/2018/10/02/CShape/vs发布网站中允许更新此预编译站点和网站安全首次速度的关系/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="vs发布网站中 &#34;允许更新此预编译站点&#34;和网站安全、首次速度的关系">vs发布网站中 &#34;允许更新此预编译站点&#34;和网站安全、首次速度的关系</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="cpp "
+           href="/2018/10/02/C++/CPPpragmaonce与ifndef的区别/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="C++ \#pragma once与 \#ifndef的区别">C++ \#pragma once与 \#ifndef的区别</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="cpp "
+           href="/2018/10/02/C++/CPP处理JSON数据交换格式/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="C++ 处理 JSON 数据交换格式">C++ 处理 JSON 数据交换格式</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="cpp "
+           href="/2018/10/02/C++/CPP的list和vector有什么区别/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="C++的list和vector有什么区别">C++的list和vector有什么区别</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="cpp "
+           href="/2018/10/02/C++/UTF-8带签名和无签名的区别/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="UTF-8带签名和无签名的区别">UTF-8带签名和无签名的区别</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="cpp "
+           href="/2018/10/02/C++/CPP识别不同的运行平台linux和win32/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="C++识别不同的运行平台linux和win32">C++识别不同的运行平台linux和win32</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="Hadoop "
+           href="/2018/10/02/Hadoop/MacHadoop安裝/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hadoop筆記">Hadoop筆記</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="Hadoop "
+           href="/2018/10/02/Hadoop/macbian-yi-hadoop/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Mac安装protobuf">Mac安装protobuf</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="Java "
+           href="/2018/10/02/Java/Java引用/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Java  强引用、弱引用、软引用、虚引用">Java  强引用、弱引用、软引用、虚引用</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="Java "
+           href="/2018/10/02/Java/Java生态/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Java生态">Java生态</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="Java "
+           href="/2018/10/02/Java/java/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Java反射">Java反射</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="Java "
+           href="/2018/10/02/Java/intellij-idea/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="intellij idea">intellij idea</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="Java "
+           href="/2018/10/02/Java/javaa-li-gui-fan/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="intellij idea">intellij idea</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="Java "
+           href="/2018/10/02/Java/javagooglestyle/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="google java">google java</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="Java "
+           href="/2018/10/02/Java/javatui-jian-de-dan-li-xie-fa/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="饿汉式 static final field">饿汉式 static final field</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="Java "
+           href="/2018/10/02/Java/ubuntupei-zhi-tomcat/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Ubuntu配置Tomcat">Ubuntu配置Tomcat</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="php "
+           href="/2018/10/02/PHP/cong_0_kai_shi_php/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="从0开始PHP">从0开始PHP</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="php "
+           href="/2018/10/02/PHP/laravel/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Laravel">Laravel</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="php "
+           href="/2018/10/02/PHP/php_chang_yong/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="PHP 常用">PHP 常用</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="php "
+           href="/2018/10/02/PHP/phppan_duan_wei_kong/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="PHP判断为空">PHP判断为空</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="ReactNative "
+           href="/2018/10/02/ReactNative/RN代码风格/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="ReactNativeES5">ReactNativeES5</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="ReactNative "
+           href="/2018/10/02/ReactNative/ReactNativeHTML标签/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="ReactNative HTML">ReactNative HTML</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="ReactNative "
+           href="/2018/10/02/ReactNative/ReactNative中的尺寸/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="ReactNative UI Size">ReactNative UI Size</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="ReactNative "
+           href="/2018/10/02/ReactNative/ReactNative处理触摸事件/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="ReactNative Touch Event">ReactNative Touch Event</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="ReactNative "
+           href="/2018/10/02/ReactNative/android/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="ReactNative 通訊 Android">ReactNative 通訊 Android</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="ReactNative "
+           href="/2018/10/02/ReactNative/android-recat-native/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="React Native Android Build Apk">React Native Android Build Apk</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="ReactNative "
+           href="/2018/10/02/ReactNative/exports-module.exports/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="ReactNative 通訊 Android">ReactNative 通訊 Android</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="ReactNative "
+           href="/2018/10/02/ReactNative/headless-js/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="ReactNative 通訊 Android">ReactNative 通訊 Android</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="es6 "
+           href="/2018/10/02/ReactNative/javascript-es6exportexport-default/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="es6">es6</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="ReactNative "
+           href="/2018/10/02/ReactNative/javascriptimageview/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="ReactNative ImageView">ReactNative ImageView</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="ReactNative "
+           href="/2018/10/02/ReactNative/react-native/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="ReactNative UI">ReactNative UI</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="ReactNative "
+           href="/2018/10/02/ReactNative/react-native图片处理/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="ReactNative Static Image Source">ReactNative Static Image Source</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="ReactNative "
+           href="/2018/10/02/ReactNative/reactnative-navigator/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="ReactNative Silder Gesture">ReactNative Silder Gesture</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="ReactNative "
+           href="/2018/10/02/ReactNative/reacttemp/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="ReactNative Cancel Fourse">ReactNative Cancel Fourse</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="ReactNative "
+           href="/2018/10/02/ReactNative/处理耗时业务事件/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="ReactNative Task">ReactNative Task</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="Android "
+           href="/2018/10/02/android/andoridgong-gong-library-shi-xian-fang-fa/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Android Library">Android Library</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="Android "
+           href="/2018/10/02/android/android-activity-guan-li-985e5d28-android-android-activity-guan-li-985e-md/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Android Library">Android Library</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="Android "
+           href="/2018/10/02/android/android-adbcha-kan-jin-cheng-xin-606f5d28-android-andorid-adb-cha-kan-jin-cheng-xin-606f-md/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Android Library">Android Library</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="Android "
+           href="/2018/10/02/android/android-audiorecordpei-zhi/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Android AudioRecord配置">Android AudioRecord配置</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="Android "
+           href="/2018/10/02/android/android/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Android Studio Code Style">Android Studio Code Style</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="Android "
+           href="/2018/10/02/android/androidcomparatorshi-75285d28-android-android-comparator-shi-7528-md/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Android Studio Plugins">Android Studio Plugins</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="Android "
+           href="/2018/10/02/android/androidshou-shi-chu-li/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Android手势处理">Android手势处理</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="Android "
+           href="/2018/10/02/android/androidstudioandc++/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Android CMake">Android CMake</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="Android "
+           href="/2018/10/02/android/androidyi-lai-xiang-chong-tu-chu-li/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Android 依賴項">Android 依賴項</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="Android "
+           href="/2018/10/02/android/androidyin-pin-kai-fa/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Android音频开发">Android音频开发</span>
+            <span class="post-date" title="2018-10-02 16:50:28">2018/10/02</span>
+        </a>
+        
+        <a  class="Android "
+           href="/2018/10/02/android/gradle/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Android Gradlew">Android Gradlew</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/2018/10/02/flutter/flutter-jian-jie/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Flutter是什么">Flutter是什么</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="flutter "
+           href="/2018/10/02/flutter/flutter-kai-fa-bi-ji/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Flutter笔记">Flutter笔记</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="hybrid "
+           href="/2018/10/02/hybrid/note/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="html 模板下載方案ts.txt文件">html 模板下載方案ts.txt文件</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/2018/10/02/iOS/ios-noteiosios-notemd/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="iOS Note">iOS Note</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/2018/10/02/iOS/iOS Note/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="iOS Note">iOS Note</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/2018/10/02/iOS/ios-shu-ju-cun-chu/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="NSUserDefaults存储数据">NSUserDefaults存储数据</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/2018/10/02/iOS/ios-swiftsheng-chan-ban-ben-kong-zhi/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="iOS版本控制">iOS版本控制</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/2018/10/02/iOS/ios-tips/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="iOS status bar">iOS status bar</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="iOS "
+           href="/2018/10/02/iOS/ios下homebrew基本使用/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="MAC下Homebrew基本使用">MAC下Homebrew基本使用</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="jQuery "
+           href="/2018/10/02/jQuery/jQuery常用API/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="jQuery常用API">jQuery常用API</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="jQuery "
+           href="/2018/10/02/jQuery/jQuery选择器/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="jQuery选择器">jQuery选择器</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="jQuery "
+           href="/2018/10/02/jQuery/jquery_note/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="jQuery Note">jQuery Note</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="python "
+           href="/2018/10/02/python/jekyll/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="jekyll">jekyll</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="python "
+           href="/2018/10/02/python/pythonpa-chong/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="robots.txt文件">robots.txt文件</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="python "
+           href="/2018/10/02/python/pythonru-men/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="python">python</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="xamarin "
+           href="/2018/10/02/xamarin/xarmarinchu-bu-le-jie/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Xamarin体验">Xamarin体验</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="xamarin "
+           href="/2018/10/02/xamarin/xiang-mu-jie-gou/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Xamarin笔记">Xamarin笔记</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="hybrid "
+           href="/2018/10/02/hybrid/yi-dong-duan-hun-he-kai-fa/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="byrid">byrid</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="CShape "
+           href="/2018/10/02/CShape/CShape中的委托和事件/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="C#中的委托和事件">C#中的委托和事件</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="Android "
+           href="/2018/10/02/android/android-studio-tui-jian-cha-jian/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Android Studio Plugins">Android Studio Plugins</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="Android "
+           href="/2018/10/02/android/androidcan-kao-gui-fan/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Android Code Style">Android Code Style</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+        <a  class="cpp "
+           href="/2018/10/02/C++/CPP入门基础/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="C++入门基础">C++入门基础</span>
+            <span class="post-date" title="2018-10-02 09:09:09">2018/10/02</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-jQuery/jQuery常用API" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">jQuery常用API</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+            <a href="javascript:" data-rel="jQuery">jQuery</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2018-10-02 16:50:28'>2018-10-02 09:09</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#jQuery常用API"><span class="toc-text">jQuery常用API</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="jQuery常用API"><a href="#jQuery常用API" class="headerlink" title="jQuery常用API"></a>jQuery常用API</h1><hr>
+<p>##hide() 和 show() 方法来隐藏和显示 HTML 元素<br>语法：</p>
+<p><code>$(selector).show(speed,callback);</code></p>
+<p>实例</p>
+<pre><code class="javascript">$(&quot;button&quot;).click(function(){
+  $(&quot;p&quot;).hide(1000);
+});
+</code></pre>
+<p>通过 jQuery，您可以使用 toggle() 方法来切换 hide() 和 show() 方法。<br>显示被隐藏的元素，并隐藏已显示的元素：</p>
+<p>语法：</p>
+<p><code>$(selector).toggle(speed,callback);</code><br>实例</p>
+<pre><code class="javascript">$(&quot;button&quot;).click(function(){
+  $(&quot;p&quot;).toggle();
+});
+</code></pre>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 390032295@qq.com </span>
+    </div>
+</article>
+
+
+
+<div class="article_copyright">
+    <p><span>文章标题:</span>jQuery常用API</p>
+    
+    <p><span>本文作者:</span><a href="javascript:void(0)" title="Don Tam">Don Tam</a></p>
+    <p><span>发布时间:</span>2018-10-02, 09:09:09</p>
+    <p><span>最后更新:</span>2018-10-02, 16:50:28</p>
+    <span>原始链接:</span><a class="post-url" href="/2018/10/02/jQuery/jQuery常用API/" title="jQuery常用API">https://chocolatetan.github.io/DonBlog/2018/10/02/jQuery/jQuery常用API/</a>
+    <p>
+        <span>版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+    
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2018 Don</p>
+<p class="footer-entry">Buit with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" href="javascript:void(0)"></a>
+    </div>
+</div>
+<div class="acParent"></div>
+
+</body>
+<script src="//cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+
+<script src="//cdn.bootcss.com/photoswipe/4.1.2/photoswipe.min.js"></script>
+<script src="//cdn.bootcss.com/photoswipe/4.1.2/photoswipe-ui-default.min.js"></script>
+
+<script src="/js/script.js"></script>
+<script>
+    var img_resize = 'photoSwipe';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': [],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length - 1;
+            var $numbering = $('<ul/>').addClass('pre-numbering').attr("unselectable","on");
+            $(this).addClass('has-numbering')
+                    .parent()
+                    .append($numbering);
+            for(i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+
+        // PhotoSwipe
+        $('article').each(function(i){
+            $(this).find('img').each(function(){
+                if ($(this).closest('figure').hasClass('article-gallery-img')) {
+                    return;
+                }
+                var alt = this.alt;
+                $(this)
+                    .wrap('<figure class="article-gallery-img" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject"></figure>')
+                    .wrap('<a href="' + this.src + '" title="' + alt + '"></a>');
+                $(this).after('<div class="img_alt"><span>' + (alt || '') + '</span></div>');
+            });
+        });
+
+        var pswpElement = document.querySelectorAll('.pswp')[0];
+        if (pswpElement) {
+            var gallerySelector = '.article-gallery, article';
+
+            var initPhotoSwipeFromDOM = function(gallerySelector) {
+
+                // parse slide data (url, title, size ...) from DOM elements
+                // (children of gallerySelector)
+                var parseThumbnailElements = function(el) {
+                    var thumbElements = $(el).find('figure.article-gallery-img').toArray(),
+                        numNodes = thumbElements.length,
+                        items = [],
+                        figureEl,
+                        linkEl,
+                        size,
+                        imgEl,
+                        item;
+
+                    for (var i = 0; i < numNodes; i++) {
+
+                        figureEl = thumbElements[i]; // <figure> element
+
+                        // include only element nodes
+                        if (figureEl.nodeType !== 1) {
+                            continue;
+                        }
+
+                        linkEl = figureEl.children[0]; // <a> element
+                        imgEl = linkEl.children[0]; // <img>
+
+                        size = linkEl.getAttribute('data-size');
+                        size = size && size.split('x');
+
+                        // create slide object
+                        item = {
+                            src: linkEl.getAttribute('href'),
+                            w: size && parseInt(size[0], 10) || imgEl.width,
+                            h: size && parseInt(size[1], 10) || imgEl.height
+                        };
+
+                        if (figureEl.children.length > 1) {
+                            // <figcaption> content
+                            item.title = figureEl.children[1].innerHTML;
+                        }
+
+                        if (linkEl.children.length > 0) {
+                            // <img> thumbnail element, retrieving thumbnail url
+                            item.msrc = linkEl.children[0].getAttribute('src');
+                        }
+
+                        item.el = figureEl; // save link to element for getThumbBoundsFn
+                        items.push(item);
+                    }
+
+                    return items;
+                };
+
+                // find nearest parent element
+                var closest = function closest(el, fn) {
+                    return el && (fn(el) ? el : closest(el.parentNode, fn));
+                };
+
+                // triggers when user clicks on thumbnail
+                var onThumbnailsClick = function(e) {
+                    e = e || window.event;
+
+                    var eTarget = e.target || e.srcElement;
+
+                    // find root element of slide
+                    var clickedListItem = closest(eTarget, function(el) {
+                        return (el.tagName && el.tagName.toUpperCase() === 'FIGURE');
+                    });
+
+                    if (!clickedListItem) {
+                        return;
+                    }
+
+                    if (e.preventDefault) {
+                        e.preventDefault();
+                    } else {
+                        e.returnValue = false;
+                    }
+
+                    // find index of clicked item by looping through all child nodes
+                    // alternatively, you may define index via data- attribute
+                    var clickedGallery = $(clickedListItem).closest(gallerySelector)[0],
+                        childNodes = $(clickedGallery).find('figure.article-gallery-img').toArray(),
+                        numChildNodes = childNodes.length,
+                        nodeIndex = 0,
+                        index;
+
+                    for (var i = 0; i < numChildNodes; i++) {
+                        if (childNodes[i].nodeType !== 1) {
+                            continue;
+                        }
+
+                        if (childNodes[i] === clickedListItem) {
+                            index = nodeIndex;
+                            break;
+                        }
+                        nodeIndex++;
+                    }
+
+
+
+                    if (index >= 0) {
+                        // open PhotoSwipe if valid index found
+                        openPhotoSwipe(index, clickedGallery);
+                    }
+                    return false;
+                };
+
+                // parse picture index and gallery index from URL (#&pid=1&gid=2)
+                var photoswipeParseHash = function() {
+                    var hash = window.location.hash.substring(1),
+                        params = {};
+
+                    if (hash.length < 5) {
+                        return params;
+                    }
+
+                    var vars = hash.split('&');
+                    for (var i = 0; i < vars.length; i++) {
+                        if (!vars[i]) {
+                            continue;
+                        }
+                        var pair = vars[i].split('=');
+                        if (pair.length < 2) {
+                            continue;
+                        }
+                        params[pair[0]] = pair[1];
+                    }
+
+                    if (params.gid) {
+                        params.gid = parseInt(params.gid, 10);
+                    }
+
+                    return params;
+                };
+
+                var openPhotoSwipe = function(index, galleryElement, disableAnimation, fromURL) {
+                    var pswpElement = document.querySelectorAll('.pswp')[0],
+                        gallery,
+                        options,
+                        items;
+
+                    items = parseThumbnailElements(galleryElement);
+
+                    // define options (if needed)
+                    options = {
+
+                        // define gallery index (for URL)
+                        galleryUID: galleryElement.getAttribute('data-pswp-uid'),
+
+                        getThumbBoundsFn: function(index) {
+                            // See Options -> getThumbBoundsFn section of documentation for more info
+                            var thumbnail = items[index].el.getElementsByTagName('img')[0], // find thumbnail
+                                pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
+                                rect = thumbnail.getBoundingClientRect();
+
+                            return {
+                                x: rect.left,
+                                y: rect.top + pageYScroll,
+                                w: rect.width
+                            };
+                        }
+                    };
+
+                    // PhotoSwipe opened from URL
+                    if (fromURL) {
+                        if (options.galleryPIDs) {
+                            // parse real index when custom PIDs are used
+                            // http://photoswipe.com/documentation/faq.html#custom-pid-in-url
+                            for (var j = 0; j < items.length; j++) {
+                                if (items[j].pid == index) {
+                                    options.index = j;
+                                    break;
+                                }
+                            }
+                        } else {
+                            // in URL indexes start from 1
+                            options.index = parseInt(index, 10) - 1;
+                        }
+                    } else {
+                        options.index = parseInt(index, 10);
+                    }
+
+                    // exit if index not found
+                    if (isNaN(options.index)) {
+                        return;
+                    }
+
+                    if (disableAnimation) {
+                        options.showAnimationDuration = 0;
+                    }
+
+                    // Pass data to PhotoSwipe and initialize it
+                    gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+
+                    gallery.listen('imageLoadComplete', function(index, item) {
+                        var linkEl = item.el.children[0];
+                        var img = item.container.children[0];
+                        if (!linkEl.getAttribute('data-size')) {
+                            linkEl.setAttribute('data-size', img.naturalWidth + 'x' + img.naturalHeight);
+                            item.w = img.naturalWidth;
+                            item.h = img.naturalHeight;
+                            gallery.invalidateCurrItems();
+                            gallery.updateSize(true);
+                        }
+                    });
+
+                    gallery.init();
+                };
+
+                // loop through all gallery elements and bind events
+                var galleryElements = document.querySelectorAll(gallerySelector);
+
+                for (var i = 0, l = galleryElements.length; i < l; i++) {
+                    galleryElements[i].setAttribute('data-pswp-uid', i + 1);
+                    galleryElements[i].onclick = onThumbnailsClick;
+                }
+
+                // Parse URL and open gallery if it contains #&pid=3&gid=1
+                var hashData = photoswipeParseHash();
+                if (hashData.pid && hashData.gid) {
+                    openPhotoSwipe(hashData.pid, galleryElements[hashData.gid - 1], true, true);
+                }
+            };
+
+            // execute above function
+            initPhotoSwipeFromDOM(gallerySelector);
+        }
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 2px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 2px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /*引用块样式*/
+    
+    .post .pjax article blockquote {
+        padding: 10px 20px;
+        background-color: white;
+        border: none;
+        border-left: 4px solid #42b983;
+        border-right: 4px solid #42b983;
+        border-radius: 10px;
+    }
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.1;
+        background: url("http://oncj6b2vl.bkt.clouddn.com/FlSExUGfRSaqxkK5v42CpuI-tXAL.jpg");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+</style>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+         It's a separate element, as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
+        <!-- don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+</html>

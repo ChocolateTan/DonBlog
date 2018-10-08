@@ -67,13 +67,13 @@
   </entry>
   
   <entry>
-    <title>ReactNative ImageView</title>
-    <link href="https://chocolatetan.github.io/DonBlog/2018/10/02/ReactNative/javascriptimageview/"/>
-    <id>https://chocolatetan.github.io/DonBlog/2018/10/02/ReactNative/javascriptimageview/</id>
+    <title>ReactNative Cancel Fourse</title>
+    <link href="https://chocolatetan.github.io/DonBlog/2018/10/02/ReactNative/reacttemp/"/>
+    <id>https://chocolatetan.github.io/DonBlog/2018/10/02/ReactNative/reacttemp/</id>
     <published>2018-10-02T01:09:09.000Z</published>
-    <updated>2018-10-02T08:50:28.950Z</updated>
+    <updated>2018-10-02T08:50:28.951Z</updated>
     
-    <content type="html"><![CDATA[<p>创建一个ViewManager的子类。</p><p>实现createViewInstance方法。</p><p>导出视图的属性设置器：使用@ReactProp（或@ReactPropGroup）注解。</p><p>把这个视图管理类注册到应用程序包的createViewManagers里。</p><p>实现JavaScript模块。</p><pre><code class="java">public class ReactImageManager extends SimpleViewManager&lt;ReactImageView&gt; {  public static final String REACT_CLASS = &quot;RCTImageView&quot;;  @Override  public String getName() {    return REACT_CLASS;  }  @Override  public ReactImageView createViewInstance(ThemedReactContext context) {    return new ReactImageView(context, Fresco.newDraweeControllerBuilder(), mCallerContext);  }</code></pre><p>导出给JavaScript使用的属性，需要申明带有<code>@ReactProp</code>（或<code>@ReactPropGroup</code>）注解的设置方法.</p><p>方法的第一个参数是要修改属性的视图实例，第二个参数是要设置的属性值</p><p>方法的返回值类型必须为<code>void</code></p><p>声明为<code>public</code></p>]]></content>
+    <content type="html"><![CDATA[<p><a href="http://react-china.org/t/touchablehighlight/3320" target="_blank" rel="noopener">http://react-china.org/t/touchablehighlight/3320</a></p><p>页面内有一个输入框和一个TouchableHighlight的按钮，当在输入框输入，直接点击该按钮时，第一次点击按钮总是执行取消TextInput的焦点回收键盘，第二次点击时按钮才会响应</p><pre><code>keyboardShouldPersistTaps={true}keyboardShouldPersistTaps enum(&#39;always&#39;, &#39;never&#39;, &#39;handled&#39;, false, true) #</code></pre>]]></content>
     
     <summary type="html">
     
@@ -171,58 +171,6 @@
   </entry>
   
   <entry>
-    <title>C++的list和vector有什么区别</title>
-    <link href="https://chocolatetan.github.io/DonBlog/2018/10/02/C++/CPP%E7%9A%84list%E5%92%8Cvector%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB/"/>
-    <id>https://chocolatetan.github.io/DonBlog/2018/10/02/C++/CPP的list和vector有什么区别/</id>
-    <published>2018-10-02T01:09:09.000Z</published>
-    <updated>2018-10-02T08:50:28.940Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="C-的list和vector有什么区别"><a href="#C-的list和vector有什么区别" class="headerlink" title="C++的list和vector有什么区别"></a>C++的list和vector有什么区别</h1><hr><p>总结：list链结构存储 vector是连续内存空间存储，当后者内存空间不够会影响效率<br>前者由于是链结构，遍历时会影响搜索效率，但很好支持插入删除的操作</p><p>vector和数组类似，它拥有一段连续的内存空间，并且起始地址不变，因此它能非常好的支持随机存取（即使用[]操作符访问其中的元素），但由于它的内存空间是连续的，所以在中间进行插入和删除会造成内存块的拷贝（复杂度是O(n)），另外，当该数组后的内存空间不够时，需要重新申请一块足够大的内存并进行内存的拷贝。这些都大大影响了vector的效率。</p><p>list是由数据结构中的双向链表实现的，因此它的内存空间可以是不连续的。因此只能通过指针来进行数据的访问，这个特点使得它的随机存取变的非常没有效率，需要遍历中间的元素，搜索复杂度O(n)，因此它没有提供[]操作符的重载。但由于链表的特点，它可以以很好的效率支持任意地方的删除和插入。<br>由于list和vector上面的这些区别，因此list::iterator与vector::iterator也有一些不同。请看下面的例子：</p><pre><code class="c++">#include &lt;iostream&gt;#include &lt;vector&gt;#include &lt;list&gt;using namespace std;int main( void ){        vector&lt;int&gt; v;         list&lt;int&gt; l;        for (int i=0; i&lt;8; i++)     //往v和l中分别添加元素        {                v.push_back(i);                l.push_back(i);        }        cout &lt;&lt; &quot;v[2] = &quot; &lt;&lt; v[2] &lt;&lt; endl;        //cout &lt;&lt; &quot;l[2] = &quot; &lt;&lt; l[2] &lt;&lt; endl;       //编译错误,list没有重载[]        cout &lt;&lt; (v.begin() &lt; v.end()) &lt;&lt; endl;        //cout &lt;&lt; (l.begin() &lt; l.end()) &lt;&lt; endl;   //编译错误,list::iterator没有重载&lt;或&gt;        cout &lt;&lt; *(v.begin() + 1) &lt;&lt; endl;        vector&lt;int&gt;::iterator itv = v.begin();        list&lt;int&gt;::iterator itl = l.begin();        itv = itv + 2;        //itl = itl + 2;                  //编译错误,list::iterator没有重载+        itl++;itl++;                    //list::iterator中重载了++，只能使用++进行迭代访问。        cout &lt;&lt; *itv &lt;&lt; endl;        cout &lt;&lt; *itl &lt;&lt; endl;        return 0;}</code></pre><p>由于vector拥有一段连续的内存空间，能非常好的支持随机存取，因此vector<int>::iterator支持“+”、“+=”、“&lt;”等操作符。<br>而list的内存空间可以是不连续，它不支持随机访问，因此list<int>::iterator则不支持“+”、“+=”、“&lt;”等操作符运算，因此代码20、26行会有编译错误。只能使用“++”进行迭代，例如代码27行，使用两次itl++来移动itl。还有list也不支持[]运算符，因此代码18行出现编译错误。总之，如果需要高效的随即存取，而不在乎插入和删除的效率，使用vector；如果需要大量的插入和删除，而不关心随即存取，则应使用list。</int></int></p><p>答案： vector拥有一段连续的内存空间，因此支持随机存取，如果需要高效的随即存取，而不在乎插入和删除的效率，使用vector。list拥有一段不连续的内存空间，因此支持随机存取，如果需要大量的插入和删除，而不关心随即存取，则应使用list。</p><blockquote><p>来源：<br>[1]: <a href="http://genwoxuevc.blog.51cto.com/1852984/503337" target="_blank" rel="noopener">http://genwoxuevc.blog.51cto.com/1852984/503337</a></p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-      <category term="cpp" scheme="https://chocolatetan.github.io/DonBlog/categories/cpp/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>C++识别不同的运行平台linux和win32</title>
-    <link href="https://chocolatetan.github.io/DonBlog/2018/10/02/C++/CPP%E8%AF%86%E5%88%AB%E4%B8%8D%E5%90%8C%E7%9A%84%E8%BF%90%E8%A1%8C%E5%B9%B3%E5%8F%B0linux%E5%92%8Cwin32/"/>
-    <id>https://chocolatetan.github.io/DonBlog/2018/10/02/C++/CPP识别不同的运行平台linux和win32/</id>
-    <published>2018-10-02T01:09:09.000Z</published>
-    <updated>2018-10-02T13:36:39.832Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="C-识别不同的运行平台linux和win32"><a href="#C-识别不同的运行平台linux和win32" class="headerlink" title="C++识别不同的运行平台linux和win32"></a>C++识别不同的运行平台linux和win32</h1><p><img src="/DonBlog/2018/10/02/C++/CPP识别不同的运行平台linux和win32/79341078.jpg" alt=""></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-      <category term="cpp" scheme="https://chocolatetan.github.io/DonBlog/categories/cpp/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>UTF-8带签名和无签名的区别</title>
     <link href="https://chocolatetan.github.io/DonBlog/2018/10/02/C++/UTF-8%E5%B8%A6%E7%AD%BE%E5%90%8D%E5%92%8C%E6%97%A0%E7%AD%BE%E5%90%8D%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
     <id>https://chocolatetan.github.io/DonBlog/2018/10/02/C++/UTF-8带签名和无签名的区别/</id>
@@ -230,6 +178,32 @@
     <updated>2018-10-02T08:50:28.941Z</updated>
     
     <content type="html"><![CDATA[<h1 id="UTF-8带签名和无签名的区别"><a href="#UTF-8带签名和无签名的区别" class="headerlink" title="UTF-8带签名和无签名的区别"></a>UTF-8带签名和无签名的区别</h1><p>在VS中编码保存时，文件编码的选择里的UTF-8有带签名和无签名2种，那么到底有什么区别呢？<br>带签名即文件头含BOM信息，不带则没有。<br>带了的好处是，只要支持多编码的编辑器都能正确识别出文件编码。<br>不带的话，就不一定了，就有可能识别错别。<br>总之呢，这个BOM信息也就那么三字节，没必要省这么一点点空间，要用UFT-8就选带签名，这样就不会错了。</p><p>另外，VS2008似乎不能设置默认的编码格式，中文版的默认编码格式是gb2312，英文版的是utf-8。如果要想保存成其他的编码格式，可以在“文件”-〉“高级保存选项”中更改</p><blockquote><p>来源：<br>[1]: <a href="http://blog.csdn.net/crystal_ooo/article/details/8077141" target="_blank" rel="noopener">http://blog.csdn.net/crystal_ooo/article/details/8077141</a></p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="cpp" scheme="https://chocolatetan.github.io/DonBlog/categories/cpp/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>C++的list和vector有什么区别</title>
+    <link href="https://chocolatetan.github.io/DonBlog/2018/10/02/C++/CPP%E7%9A%84list%E5%92%8Cvector%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB/"/>
+    <id>https://chocolatetan.github.io/DonBlog/2018/10/02/C++/CPP的list和vector有什么区别/</id>
+    <published>2018-10-02T01:09:09.000Z</published>
+    <updated>2018-10-02T08:50:28.940Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="C-的list和vector有什么区别"><a href="#C-的list和vector有什么区别" class="headerlink" title="C++的list和vector有什么区别"></a>C++的list和vector有什么区别</h1><hr><p>总结：list链结构存储 vector是连续内存空间存储，当后者内存空间不够会影响效率<br>前者由于是链结构，遍历时会影响搜索效率，但很好支持插入删除的操作</p><p>vector和数组类似，它拥有一段连续的内存空间，并且起始地址不变，因此它能非常好的支持随机存取（即使用[]操作符访问其中的元素），但由于它的内存空间是连续的，所以在中间进行插入和删除会造成内存块的拷贝（复杂度是O(n)），另外，当该数组后的内存空间不够时，需要重新申请一块足够大的内存并进行内存的拷贝。这些都大大影响了vector的效率。</p><p>list是由数据结构中的双向链表实现的，因此它的内存空间可以是不连续的。因此只能通过指针来进行数据的访问，这个特点使得它的随机存取变的非常没有效率，需要遍历中间的元素，搜索复杂度O(n)，因此它没有提供[]操作符的重载。但由于链表的特点，它可以以很好的效率支持任意地方的删除和插入。<br>由于list和vector上面的这些区别，因此list::iterator与vector::iterator也有一些不同。请看下面的例子：</p><pre><code class="c++">#include &lt;iostream&gt;#include &lt;vector&gt;#include &lt;list&gt;using namespace std;int main( void ){        vector&lt;int&gt; v;         list&lt;int&gt; l;        for (int i=0; i&lt;8; i++)     //往v和l中分别添加元素        {                v.push_back(i);                l.push_back(i);        }        cout &lt;&lt; &quot;v[2] = &quot; &lt;&lt; v[2] &lt;&lt; endl;        //cout &lt;&lt; &quot;l[2] = &quot; &lt;&lt; l[2] &lt;&lt; endl;       //编译错误,list没有重载[]        cout &lt;&lt; (v.begin() &lt; v.end()) &lt;&lt; endl;        //cout &lt;&lt; (l.begin() &lt; l.end()) &lt;&lt; endl;   //编译错误,list::iterator没有重载&lt;或&gt;        cout &lt;&lt; *(v.begin() + 1) &lt;&lt; endl;        vector&lt;int&gt;::iterator itv = v.begin();        list&lt;int&gt;::iterator itl = l.begin();        itv = itv + 2;        //itl = itl + 2;                  //编译错误,list::iterator没有重载+        itl++;itl++;                    //list::iterator中重载了++，只能使用++进行迭代访问。        cout &lt;&lt; *itv &lt;&lt; endl;        cout &lt;&lt; *itl &lt;&lt; endl;        return 0;}</code></pre><p>由于vector拥有一段连续的内存空间，能非常好的支持随机存取，因此vector<int>::iterator支持“+”、“+=”、“&lt;”等操作符。<br>而list的内存空间可以是不连续，它不支持随机访问，因此list<int>::iterator则不支持“+”、“+=”、“&lt;”等操作符运算，因此代码20、26行会有编译错误。只能使用“++”进行迭代，例如代码27行，使用两次itl++来移动itl。还有list也不支持[]运算符，因此代码18行出现编译错误。总之，如果需要高效的随即存取，而不在乎插入和删除的效率，使用vector；如果需要大量的插入和删除，而不关心随即存取，则应使用list。</int></int></p><p>答案： vector拥有一段连续的内存空间，因此支持随机存取，如果需要高效的随即存取，而不在乎插入和删除的效率，使用vector。list拥有一段不连续的内存空间，因此支持随机存取，如果需要大量的插入和删除，而不关心随即存取，则应使用list。</p><blockquote><p>来源：<br>[1]: <a href="http://genwoxuevc.blog.51cto.com/1852984/503337" target="_blank" rel="noopener">http://genwoxuevc.blog.51cto.com/1852984/503337</a></p></blockquote>]]></content>
     
     <summary type="html">
     
@@ -270,6 +244,32 @@
     </summary>
     
       <category term="CShape" scheme="https://chocolatetan.github.io/DonBlog/categories/CShape/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>C++识别不同的运行平台linux和win32</title>
+    <link href="https://chocolatetan.github.io/DonBlog/2018/10/02/C++/CPP%E8%AF%86%E5%88%AB%E4%B8%8D%E5%90%8C%E7%9A%84%E8%BF%90%E8%A1%8C%E5%B9%B3%E5%8F%B0linux%E5%92%8Cwin32/"/>
+    <id>https://chocolatetan.github.io/DonBlog/2018/10/02/C++/CPP识别不同的运行平台linux和win32/</id>
+    <published>2018-10-02T01:09:09.000Z</published>
+    <updated>2018-10-08T03:40:40.650Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="C-识别不同的运行平台linux和win32"><a href="#C-识别不同的运行平台linux和win32" class="headerlink" title="C++识别不同的运行平台linux和win32"></a>C++识别不同的运行平台linux和win32</h1><p><img src="/DonBlog/2018/10/02/C++/CPP识别不同的运行平台linux和win32/79341078.jpg" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="cpp" scheme="https://chocolatetan.github.io/DonBlog/categories/cpp/"/>
     
     
   </entry>

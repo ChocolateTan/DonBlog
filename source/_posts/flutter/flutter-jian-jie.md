@@ -48,11 +48,9 @@ Flutter框架对于熟悉面向对象编程和命令编程的开发者门槛是�
 
 # Flutter对比
 
-![](/assets/Screen Shot 2018-09-19 at 6.10.18 PM.png)
+![](Screen Shot 2018-09-19 at 6.10.18 PM.png)
 
-# ![](/assets/Screen Shot 2018-09-30 at 12.04.50 PM.png)
-
-# 
+# ![](Screen Shot 2018-09-30 at 12.04.50 PM.png)
 
 # Flutter相关产品
 

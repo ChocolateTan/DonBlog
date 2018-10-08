@@ -15,11 +15,11 @@ categories: hybrid
 
 ### 1.1.html下載模板流程
 
-![](/assets/html_download.png)
+![](html_download.png)
 
 ### 1.2.js 與 native 通訊流程
 
-![](blob:file:///ac20539a-0d43-479f-ba28-e811032391f9)
+![](js_call_native2.png)
 
 ## 2.方案實現
 

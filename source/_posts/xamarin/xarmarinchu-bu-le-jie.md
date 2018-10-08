@@ -5,11 +5,11 @@ categories: xamarin
 ---
 ## Xamarin 是什么
 
-使用 .net 技術完成所有平台共用的和無關的邏輯部分，由於各個平台的 UI 和交互不同，在使用由 Xamarin 封裝好的 C\# API 來訪問和操作 native 的控件，分別進行不同平台的 UI 開發。![](/assets/xamarin-share.png)
+使用 .net 技術完成所有平台共用的和無關的邏輯部分，由於各個平台的 UI 和交互不同，在使用由 Xamarin 封裝好的 C\# API 來訪問和操作 native 的控件，分別進行不同平台的 UI 開發。![](xamarin-share.png)
 
 主要幾項技術，Xamarin.Android、Xamarin.iOS、Xamarin.UWP 和 Xamarin.Forms 等。
 
-![](/assets/xamarinwhat.png)
+![](xamarinwhat.png)
 
 ### 工作原理
 
@@ -17,7 +17,7 @@ categories: xamarin
 
 在 iOS 上，Xamarin 的預先 \(AOT靜態編譯\) 編譯器將 Xamarin.iOS 應用程序直接編譯到本機 ARM 程序集代碼。對於開發者來說，Xamarin.IOS相對於Xamarin.Android就要簡單很多了，我們用C\#開發的iOS應用程序在被編譯成IL代碼之後，然後轉交給Apple complier直接編譯成iOS的本地機器碼，也就是說C\#寫的iOS應用程序和Objective-C 寫的是一樣的。透過 Ahead-of-Time \(AOT\) 編譯程序，直接將Xamarin.iOS程序編譯為ARM的執行檔。編譯封裝完成的應用程序被直接編譯為原生的二進制執行文件。
 
-![](/assets/xamarin-iOS-run.png)
+![](xamarin-iOS-run.png)
 
 #### Android 在啟動時通過 JIT 動態編譯
 
@@ -32,7 +32,7 @@ categories: xamarin
 
 如果需要在 C\# 中調用一些系統的功能或者 Java 實現的類庫，該如何調用那？ 答案就是 MCW ，MCW 就是一個JNI橋梁，可以使用托管代碼調用 Android 的代碼。MCW 將整個 Android.\*  以及相關的命名空間通過 jar綁定的方式暴露出來，是的C\#可以調用。
 
-![](/assets/xamarin-android-mono.png)
+![](xamarin-android-mono.png)
 
 ## Xamarin 為什麽要使用
 

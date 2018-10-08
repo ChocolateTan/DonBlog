@@ -82,6 +82,22 @@ highlight:
 #   auto_detect: false
 #   tab_replace:
 
+# Rss
+feed:
+    type: atom
+    path: atom.xml
+    limit: 20
+    hub:
+    content: true
+    content_limit:
+    content_limit_delim: ' '
+
+# Seo Site
+sitemap: 
+    path: sitemap.xml
+baidusitemap:
+    path: baidusitemap.xml
+
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:

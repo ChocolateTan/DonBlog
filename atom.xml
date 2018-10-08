@@ -405,13 +405,13 @@
   </entry>
   
   <entry>
-    <title>从0开始PHP</title>
-    <link href="https://chocolatetan.github.io/DonBlog/2018/10/02/PHP/cong_0_kai_shi_php/"/>
-    <id>https://chocolatetan.github.io/DonBlog/2018/10/02/PHP/cong_0_kai_shi_php/</id>
+    <title>Java  强引用、弱引用、软引用、虚引用</title>
+    <link href="https://chocolatetan.github.io/DonBlog/2018/10/02/Java/Java%E5%BC%95%E7%94%A8/"/>
+    <id>https://chocolatetan.github.io/DonBlog/2018/10/02/Java/Java引用/</id>
     <published>2018-10-02T01:09:09.000Z</published>
-    <updated>2018-10-02T08:50:28.947Z</updated>
+    <updated>2018-10-02T08:50:28.944Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="从0开始PHP"><a href="#从0开始PHP" class="headerlink" title="从0开始PHP"></a>从0开始PHP</h1><p>山寨一个网站</p><p>##1.山寨网站<br><a href="http://cinephilia.net/" target="_blank" rel="noopener">cinephilia谜影</a></p>]]></content>
+    <content type="html"><![CDATA[<h3 id="Java-强引用、弱引用、软引用、虚引用"><a href="#Java-强引用、弱引用、软引用、虚引用" class="headerlink" title="Java  强引用、弱引用、软引用、虚引用"></a>Java  强引用、弱引用、软引用、虚引用</h3><p>http:\/\/blog.csdn.net\/mazhimazh\/article\/details\/19752475</p><table><thead><tr><th><strong>引用类型</strong></th><th><strong>被垃圾回收时间</strong></th><th><strong> 用途</strong></th><th><strong> 生存时间</strong></th></tr></thead><tbody><tr><td>强引用</td><td>从来不会</td><td>对象的一般状态</td><td>JVM停止运行时终止</td></tr><tr><td>软引用</td><td>在内存不足时</td><td>对象缓存</td><td>内存不足时终止</td></tr><tr><td>弱引用</td><td>在垃圾回收时</td><td>对象缓存</td><td>gc运行后终止</td></tr><tr><td>虚引用</td><td>Unknown</td><td>Unknown</td><td>Unknown</td></tr></tbody></table>]]></content>
     
     <summary type="html">
     
@@ -425,85 +425,7 @@
     
     </summary>
     
-      <category term="php" scheme="https://chocolatetan.github.io/DonBlog/categories/php/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Laravel</title>
-    <link href="https://chocolatetan.github.io/DonBlog/2018/10/02/PHP/laravel/"/>
-    <id>https://chocolatetan.github.io/DonBlog/2018/10/02/PHP/laravel/</id>
-    <published>2018-10-02T01:09:09.000Z</published>
-    <updated>2018-10-02T08:50:28.947Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="路由参数"><a href="#路由参数" class="headerlink" title="路由参数"></a>路由参数</h3><p>參數按照順序與名稱無關</p><pre><code class="php">Route::get(&#39;posts/{post}/comments/{comment}&#39;, function ($postId, $commentId) {    //});</code></pre><h3 id="可選參數"><a href="#可選參數" class="headerlink" title="可選參數"></a>可選參數</h3><pre><code class="php">Route::get(&#39;user/{name?}&#39;, function ($name = null) {    return $name;});Route::get(&#39;user/{name?}&#39;, function ($name = &#39;John&#39;) {    return $name;});</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-      <category term="php" scheme="https://chocolatetan.github.io/DonBlog/categories/php/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>PHP 常用</title>
-    <link href="https://chocolatetan.github.io/DonBlog/2018/10/02/PHP/php_chang_yong/"/>
-    <id>https://chocolatetan.github.io/DonBlog/2018/10/02/PHP/php_chang_yong/</id>
-    <published>2018-10-02T01:09:09.000Z</published>
-    <updated>2018-10-02T08:50:28.947Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="PHP-常用"><a href="#PHP-常用" class="headerlink" title="PHP 常用"></a>PHP 常用</h1>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-      <category term="php" scheme="https://chocolatetan.github.io/DonBlog/categories/php/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>PHP判断为空</title>
-    <link href="https://chocolatetan.github.io/DonBlog/2018/10/02/PHP/phppan_duan_wei_kong/"/>
-    <id>https://chocolatetan.github.io/DonBlog/2018/10/02/PHP/phppan_duan_wei_kong/</id>
-    <published>2018-10-02T01:09:09.000Z</published>
-    <updated>2018-10-02T08:50:28.947Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="PHP判断为空"><a href="#PHP判断为空" class="headerlink" title="PHP判断为空"></a>PHP判断为空</h1>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-      <category term="php" scheme="https://chocolatetan.github.io/DonBlog/categories/php/"/>
+      <category term="Java" scheme="https://chocolatetan.github.io/DonBlog/categories/Java/"/>
     
     
   </entry>
@@ -516,6 +438,84 @@
     <updated>2018-10-02T08:50:28.945Z</updated>
     
     <content type="html"><![CDATA[<p>Java、JDBC、SQL、HTML、DIV+CSS、JavaScript、JQuery、DOM、JQuery EasyUI、Servlet、JSP、Cookie、Session、AJAX、JSON、反射、注解、多线程、线程池、SoftReference、WeakReference、EL表达式、正则表达式、MD5、BASE64、DES、AES、序列化、泛型等技术Spring、SpringMVC、MVC架构XML、DOM4J、HTML5、Socket、ECharts、POI、FreeMarker、页面静态化、iText、WebService、Quartz、IO、HttpClient、JSONP、JavaBean、RESTFul、AOP、SQL语句、JMS、缓存、消息队列、集合、HTTP协议MongoDB、Redis、Memcached 都是NoSQL序列 Redis、Memcached，现在Redis很火Oracle、MySQL，互联网公司Oracle很少用，除非政府、银行等等会用到，一般互联网公司都是MySQL 数据库连接池工具：C3P0、DBCP、Druid （知道怎么样使用就可以）搜索引擎或者框架： Lucene、Solr、Elasticsearch , 目前Elasticsearch 比较火，Solr和Elasticsearch 都是基于LuceneIK中文分词器：会和 搜索引擎或者框架 整合，Struts2、SpringMVC，现在很多互联网公司都使用SpringMVC，但是，还有很多公司使用 Struts2Hibernate、MyBatis、iBatis，现在互联网公司都是用MyBatis（MyBatis的前身是iBatis），还有部分公司使用Hibernate、反射和注解（Annotation）、泛型 是Java领域的非常重要的技术，几乎所有框架都离不开反射和注解， 例如：Spring消息队列框架：ActiveMQ、ZeroMQ、RabbitMQ、RocketMQ， RabbitMQ 会用得稍微多一点Java领域常用的JSON框架： Jackson、FastJson、Gson 现在比较火的技术：微服务、面向服务（SOA）微服务:Spring Boot SOA：Dubbo（阿里开源），DubboX（当当网团队维护Dubbo的一个版本），还有360的，微博的MySQL集群：主从复制、一主多从，多主多从MySQL的中间件：MyCat， MyCat可以很简单地实现读写分离，分库分表（横向和纵向拆分）服务器或者服务器容器：Tomcat RPCNetty：Java领域当前最牛逼、最火爆 高性能网络通信框架， Dubbo底层、Hadoop、Spark、Storm等等大数据分布式框架或者平台，都是使用Netty实现网络通信分布式：把一个单一的系统拆成多个独立的服务或者微服务，实现分布式框架FastDFS：是一个开源的轻量级分布式文件系统，它对文件进行管理，功能包括：文件存储、文件同步、文件访问（文件上传、文件下载）等，目前主要用于图片存储比较多</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="Java" scheme="https://chocolatetan.github.io/DonBlog/categories/Java/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>intellij idea</title>
+    <link href="https://chocolatetan.github.io/DonBlog/2018/10/02/Java/intellij-idea/"/>
+    <id>https://chocolatetan.github.io/DonBlog/2018/10/02/Java/intellij-idea/</id>
+    <published>2018-10-02T01:09:09.000Z</published>
+    <updated>2018-10-02T08:50:28.945Z</updated>
+    
+    <content type="html"><![CDATA[<p>archetypeCatalog表示插件使用的archetype元数据，不加这个参数时默认为remote，local，即中央仓库archetype元数据，由于中央仓库的archetype太多了，所以导致很慢，指定internal来表示仅使用内部元数据。</p><p>这里在Properties中添加一个参数</p><p><code>archetypeCatalog=internal</code></p><p>，不加这个参数，在maven生成骨架的时候将会非常慢，有时候会直接卡住</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="Java" scheme="https://chocolatetan.github.io/DonBlog/categories/Java/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Java反射</title>
+    <link href="https://chocolatetan.github.io/DonBlog/2018/10/02/Java/java/"/>
+    <id>https://chocolatetan.github.io/DonBlog/2018/10/02/Java/java/</id>
+    <published>2018-10-02T01:09:09.000Z</published>
+    <updated>2018-10-02T08:50:28.945Z</updated>
+    
+    <content type="html"><![CDATA[<p>\/**</p><p>* 获取操作实体的类型</p><p>*\/</p><p>Class&lt;? extends Object&gt; clazz = entity.getClass();</p><p>\/**</p><p>* 获取传入实体的所有公开的方法;</p><p>*\/</p><p>Method[] methods = clazz.getDeclaredMethods();</p><p>\/**</p><p>* 获取传入实体中的所有公开的的属性</p><p>*\/</p><p>Field[] fields = clazz.getDeclaredFields();</p><p>fields[i].setAccessible(true);\/\/取消private</p><p>如果没有在获取Field之前调用setAccessible(true)方法，异常:</p><ol><li>java.lang.IllegalAccessException:</li><li>Class com.test.accessible.Main</li><li>can not access</li><li>a member of <strong>class</strong> com.test.accessible.AccessibleTest</li><li>with modifiers “private”</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="Java" scheme="https://chocolatetan.github.io/DonBlog/categories/Java/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>intellij idea</title>
+    <link href="https://chocolatetan.github.io/DonBlog/2018/10/02/Java/javaa-li-gui-fan/"/>
+    <id>https://chocolatetan.github.io/DonBlog/2018/10/02/Java/javaa-li-gui-fan/</id>
+    <published>2018-10-02T01:09:09.000Z</published>
+    <updated>2018-10-02T08:50:28.946Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p><a href="https://yq.aliyun.com/attachment/download/?spm=5176.100239.blogcont69327.6.eob6EJ&amp;id=1492" target="_blank" rel="noopener"><strong>https://yq.aliyun.com/attachment/download/?id=1492</strong></a></p></blockquote>]]></content>
     
     <summary type="html">
     

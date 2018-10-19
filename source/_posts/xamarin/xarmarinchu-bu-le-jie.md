@@ -76,6 +76,7 @@ categories: xamarin
 #### 社區規模小
 
 ## 與 Xamarin 有關的用戶和產品
+![](xamarin_reply.png)
 
 [http://www.cnblogs.com/cloudinfo/p/7286628.html](http://www.cnblogs.com/cloudinfo/p/7286628.html)
 

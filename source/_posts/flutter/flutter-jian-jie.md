@@ -11,7 +11,7 @@ Flutter不使用浏览器技术，也不使用Native的原生控件，它使用�
 
 ## Flutter设计
 
-![](/assets/Screen Shot 2018-09-30 at 3.05.02 PM.png)
+![](Screen Shot 2018-09-30 at 3.05.02 PM.png)
 
 Flutter Framework: 这是一个纯 Dart实现的 SDK，类似于 React在 JavaScript中的作用。它实现了一套基础库， 用于处理动画、绘图和手势。并且基于绘图封装了一套 UI组件库，然后根据 Material 和Cupertino两种视觉风格区分开来。这个纯 Dart实现的 SDK被封装为了一个叫作 dart:ui的 Dart库。我们在使用 Flutter写 App的时候，直接导入这个库即可使用组件等功能。
 

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Docker搭建php開發環境
 date: 2018-10-19 17:24:59
 categories: docker

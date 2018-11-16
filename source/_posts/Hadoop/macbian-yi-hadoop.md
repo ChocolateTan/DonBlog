@@ -134,3 +134,11 @@ export OPENSSL\_INCLUDE\_DIR=/usr/local/Cellar/openssl/1.0.2j/include
 
 退出后执行source ~/.bash\_profile使之生效
 
+
+
+////////3.1.1 mac
+//进程显示不全
+cat /private/etc/hosts
+sudo vi /private/etc/hosts
+127.0.0.1  dontan
+

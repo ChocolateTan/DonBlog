@@ -1,5 +1,5 @@
 ---
-title: Hadoop筆記
+title: MacHadoop安裝
 date: 2018-10-02 09:09:09
 categories: Hadoop
 ---

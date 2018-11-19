@@ -22,12 +22,12 @@
         <name>dfs.replication</name>
         <value>1</value>
     </property>
-    <property>
+    <!-- <property>
         <name>dfs.namenode.name.dir</name>
         <value>file:/usr/local/Cellar/hadoop/hdfs/tmp/dfs/name</value>
     </property>
     <property>
         <name>dfs.datanode.data.dir</name>
         <value>file:/usr/local/Cellar/hadoop/hdfs/tmp/dfs/data</value>
-    </property>
+    </property> -->
 </configuration>

@@ -12,5 +12,5 @@ categories: flutter
 * paused - 应用程序当前对用户不可见，不响应用户输入，并在后台运行。这是来自Android的暂停
 * suspending - 该应用程序将暂时中止。这在iOS上未使用
 
-![](flutter_app_tree.png)
+![](./flutter-kai-fa-bi-ji/flutter_app_tree.png)
 

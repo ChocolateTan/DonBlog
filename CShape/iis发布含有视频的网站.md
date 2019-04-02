@@ -18,7 +18,7 @@ mp4格式是扩展名：.mp4，内容类型：video/mp4
 win7的iis里
 默认支持flv文件 调用使用时路径用绝对路径就可以了，比如你的视频在video/a.flv的，请直接用/video/a.flv，如果需要支持f4v,mp4请参考2003的设置
 
- ![](image001.jpg)
+ ![](./iis发布含有视频的网站/image001.jpg)
  
 转载:ckplayer.com
  

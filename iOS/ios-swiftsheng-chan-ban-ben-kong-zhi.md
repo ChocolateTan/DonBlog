@@ -27,7 +27,7 @@ let env = Bundle.main.infoDictionary!["SERVER_ADDRESS"] as! String
 
 4.object-c 通過宏定義
 
-![](import.png)
+![](./ios-swiftsheng-chan-ban-ben-kong-zhi/import.png)
 
 ```object-c
 #if DEV

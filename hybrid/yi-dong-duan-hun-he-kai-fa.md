@@ -15,11 +15,11 @@ categories: hybrid
 
 ### 1.1.html下載模板流程
 
-![](html_download.png)
+![](./yi-dong-duan-hun-he-kai-fa/html_download.png)
 
 ### 1.2.js 與 native 通訊流程
 
-![](js_call_native2.png)
+![](./yi-dong-duan-hun-he-kai-fa/js_call_native2.png)
 
 ## 2.方案實現
 

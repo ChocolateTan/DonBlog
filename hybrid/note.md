@@ -5,9 +5,9 @@ categories: hybrid
 ---
 html 模板下載方案：
 
-![](html_download.png)
+![](./note/html_download.png)
 
 js native 通訊方案：
 
-![](js_call_native2.png)
+![](./note/js_call_native2.png)
 

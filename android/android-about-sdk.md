@@ -1,0 +1,5 @@
+# android 框架一些想法
+
+View View层做的就是和UI相关的工作，我们只在XML和Activity或Fragment写View层的代码，View层不做和业务相关的事，也就是我们的Activity 不写和业务逻辑相关代码，也不写需要根据业务逻辑来更新UI的代码，因为更新UI通过Binding实现，更新UI在ViewModel里面做（更新绑定的数据源即可），Activity 要做的事就是初始化一些控件（如控件的颜色，添加 RecyclerView 的分割线），Activity可以更新UI，但是更新的UI必须和业务逻辑和数据是没有关系的，只是单纯的根据点击或者滑动等事件更新UI(如 根据滑动颜色渐变、根据点击隐藏等单纯UI逻辑)，Activity（View层）是可以处理UI事件，但是处理的只是处理UI自己的事情，View层只处理View层的事。简单的说：View层不做任何业务逻辑、不涉及操作数据、不处理数据、UI和数据严格的分开。
+ViewModel ViewModel层做的事情刚好和View层相反，ViewModel 只做和业务逻辑和业务数据相关的事，不做任何和UI、控件相关的事，ViewModel 层不会持有任何控件的引用，更不会在ViewModel中通过UI控件的引用去做更新UI的事情。ViewModel就是专注于业务的逻辑处理，操作的也都是对数据进行操作，这些个数据源绑定在相应的控件上会自动去更改UI，开发者不需要关心更新UI的事情。关于对UI控件事件的处理，我们也希望能把这些事件处理绑定到控件上，并把这些事件统一化，方便ViewModel对事件的处理和代码的美观。为此我们通过BindingAdapter 对一些常用的事件做了封装，把一个个事件封装成一个个Command，对于每个事件我们用一个ReplyCommand<T>去处理就行了,ReplyCommand<T>会把可能你需要的数据带给你，这使得我们处理事件的时候也只关心处理数据就行了，再强调一遍ViewModel 不做和UI相关的事。
+Model  Model 的职责很简单，基本就是实体模型（Bean）同时包括Retrofit 的Service ，ViewModel 可以根据Model 获取一个Bean的Observable<Bean>( RxJava ),然后做一些数据转换操作和映射到ViewModel 中的一些字段，最后把这些字段绑定到View层上。

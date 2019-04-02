@@ -15,7 +15,7 @@ categories: Android
 
 第三种就是将所以的library作为一个工程使用，然后将所有的library都放入此工程中，然后在其他引用library的工程中，引入新建的工程，这样看起来和eclipse 引用library的结构就很像了，且可以放入多个library都不影响。下面就来看看这种解决方法，该如何实现。
 
-首先新建一个工程，注意是工程，不是Stuio里面的Module，起一个容易理解的工程名称CommonLibrary
+首先新建一个工程，注意是工程，不是Studio里面的Module，起一个容易理解的工程名称CommonLibrary
 
 将需添加的library添加进CommonLibrary中，记得每个library也是需要有
 
@@ -36,7 +36,7 @@ include ':CommonLibrary:CommonsA'
 
 然后在我们项目实际的model中修改`build.gradle`文件，需要在`dependencies`中添加下面的代码。CommonsA和CommonsB都是要要引用的项目。
 
-compile project \(':CommonLibrary:CommonsA'\)
+compile project (':CommonLibrary:CommonsA')
 
-compile project \(':CommonLibrary:CommonsB'\)
+compile project (':CommonLibrary:CommonsB')
 

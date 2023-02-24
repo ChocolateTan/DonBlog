@@ -27,3 +27,14 @@ git reflog
 * 2、执行命令 git pull --tags -f ，这个命令可以覆盖本地存在的标签冲突
 
 > 原文链接：https://blog.csdn.net/qq_43296719/article/details/106431479
+
+## 删除本地分支
+
+git branch -d localBranchName
+
+git branch -D branchName
+
+git branch | xargs git branch -d
+
+git branch | grep ‘dev*’ | xargs git branch -d
+

@@ -1,0 +1,65 @@
+@startmindmap
+* Spring
+** 依赖注入
+*** 声明 Bean 的注解
+**** @Component 组件，没有明确的角色
+**** @Service 业务逻辑层 service 层
+**** @Repository 数据访问层 dao 层
+**** @Controller 展现层 MVC to SpringMVC
+*** 注入 Bean 的注解
+**** @Autowired Spring 提供的注解
+***** @Qualifier
+***** @Primary
+**** @Inject JSR-330 提供注解
+**** @Resource JSR-250 提供注解
+*** AOP(类似代理，拦截方法前后处理)
+**** @Aspect 切面声明
+***** @After
+***** @Before
+***** @Around
+***** @PointCut 切点
+*** Bean 的 Scope
+**** @Scope 创建 Bean 实例
+***** Singleton： 一个 Spring 容器只有一个 Bean 实例， Spring 默认配置，全容器共享一个
+***** Prototype： 每次调用新建一个 Bean 的实例
+***** Request：Web 项目中，给每一个 http request 新建一个 Bean 实例
+***** Session：Web 项目中，给每一个 http session 新建一个 Bean 实例
+***** GlobalSession：在 protal 应用中，给每一个 global http session 新建一个 Bean 实例
+*** Spring EL 和资源调用
+**** @Value 表达式
+*** Bean 初始化和销毁
+**** Java 配置方式 @Bean(initMethod="init", destroyMethod="destroy")
+***** initMethod
+***** destoryMethod
+**** 注解方式
+***** @PostConstruct 构造函数执行完之后
+***** @PreDestroy Bean 销毁之前执行
+*** Profile 支持不同环境
+** Spring 高级
+*** 事件 Application Event （让另外一个 Bean 监听当前 Bean 发送的事件）
+**** ApplicationEvent
+**** ApplicationListener
+*** Spring Aware (调用 Spring 容器资源，是 Bean 和 Spring 耦合)
+**** BeanNameAware 获取容器中 Bean 名称
+**** BeanFactoryAware 获得当前 bean factory，调用容器服务
+**** ApplicationContextAware* 当前的 application context，调用容器服务
+**** MessageSourceAware 获取 message squarce，获取文本信息
+**** ApplicationEventPublisherAware 发布事件
+**** ResourceLoaderAware 资源加载器，获得外部资源文件
+*** 多线程
+**** TaskExecutor 执行器
+**** ThreadPoolTaskExecutor 线程池
+**** @EnableAsync（配置类）和 AsyncCofigurer
+**** @Async（方法）任务执行类
+*** 计划任务
+**** @EnableScheduling （类注解）
+**** @Scheduled （方法）
+***** cron 每天指定时间
+***** fixDelay
+***** fixRate 每个固定时间
+*** 条件注解 @Conditional 满足某一条件自动创建
+**** @Conditional（方法） implements Condition
+*** 组合注解与元注解
+
+
+@endmindmap

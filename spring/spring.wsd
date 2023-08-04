@@ -59,7 +59,180 @@
 ***** fixRate 每个固定时间
 *** 条件注解 @Conditional 满足某一条件自动创建
 **** @Conditional（方法） implements Condition
-*** 组合注解与元注解
+*** 组合注解与元注解（如将 @Configuration 和 @Component 组合成一个新的注解 @WiselyConfiguration）
+** Spring MVC
+*** WebApplicationInitializer 实现代替 web.xml
+*** WebMvcConfigurerAdapter @EnableWebMvc 开启 Spring MVC 的配置支持
+*** Spring MVC 常用注解
+**** @Controller 类
+**** @RequestMapping 类或方法
+**** @ResponseBody 返回值签或方法
+**** @RequestBody 参数前
+**** @PathVariable 参数前
+**** @RestController 组合注解（@Controller、@ResponseBody）
+*** Spring MVC 基本配置
+**** 静态资源映射
+***** WebMvcConfigurerAdapter.viewResolver 
+***** WebMvcConfigurerAdapter.addResourceHandlers 对外暴露访问路径
+**** 拦截器配置
+***** HanlderInterceptor
+***** HanlderInterceptorAdapter
+****** preHandle 执行前
+****** postHandle 执行后
+**** @ControllerAdvice
+***** @ExceptionHandler 全局处理控制器异常
+***** @InitBinder 设置 WebDataBinder 绑定到前台请求参数 Model
+***** @ModelAttribute 绑定键值对到 Model
+**** 其他配置
+***** 快捷 ViewController： 重写 addViewControllers 统一处理页面跳转
+***** 路径匹配参数配置
+***** WebMvcConfigurerAdapter 和 WebMvcConfiguer
+*** Spring MVC 高级配置
+**** 文件上传 MultipartResolver
+**** 自定义HttpMessageConverter 处理 request 和 response 数据
+**** 服务器端推送技术
+***** SSE（需要 EventSource 支持）
+***** Servlet3.0+异步方法处理
+*** Spring MVC 测试
+**** @WebAppConfiguration 加载 Web 资源位置，默认 src/main/webapp
+**** MockMvc
+** Spring Boot
+*** 基本配置
+**** 入口类和 @SpringBootApplication
+**** 定制 Banner
+***** src/main/resources 新建 banner.txt
+***** 关闭 banner SpringApplication.setShowBanner（false）
+**** Spring Boot 配置文件
+***** application.properties server.port=9090 server.context-path=/heelboot
+***** application.yml server：port：9090 contextPath：/helloboot
+**** 常规属性配置
+***** application.properties 增加属性 book.author=aaa 添加@Value("${book.author}")
+*** 日志配置 - Spring boot 使用 Logback 作为日志框架
+**** logging.file=/mylog/log.log
+**** loggin.level.org.springframework.web=DEBUG
+*** profile 配置
+**** application-{profile}.properties 
+**** 在 application.properties 里增加 spring.profiles.active=dev
+*** Spring Boot 运行原理
+**** @SpringBootApplication 里的 @EnableAutoConfiguration @Import 注解倒入配置功能，使用 SpringFactoriesLoader.loadFactoryNames 扫描 META-INF/spring.factories 文件的 jar 包
+**** 核心注解
+***** @ConditionalOnBean
+***** @ConditionalOnClass
+***** @ConditionalOnExpression
+***** @ConditionalOnJava
+***** @ConditionalOnJndi
+***** @ConditionalOnMissingBean
+***** @ConditionalOnNotWebApplication
+***** @ConditionalOnProperty
+***** @ConditionalOnResource
+***** @ConditionalOnSingleCandidate
+***** @ConditionalOnWebApplication
+*** Spring Boot 的 web 开发
+**** Web 相关配置
+***** 自动配置 viewResolver
+****** ContentNegotiatingViewResolver
+****** BeanNameViewResolver
+****** InternalResourceViewResolver 设置前缀后缀返回视图名字符串
+***** 自动配置的静态资源 addResourceHandlers
+****** 类路径 /static /public /resources 和 /META_INF/resources 映射为 /**
+****** webjar 的 /META-INF/resources/webjars/ 下的镜头文件映射为 /webjar/** 可以通过 http://localhost:8080/webjar/** 访问
+***** 自动配置 Formatter 和 Converter 可以定义接口实现类的 Bean
+***** 自动配置 HttpMessageConverters
+**** 接管 Spring Boot 的 Web 配置
+***** @Configuration 加上 @EnableWebMvc
+**** 注册 Servlet，Filter，Listener
+*** Tomcat 配置
+**** 配置 Tomcat application.properties
+***** 配置 Servlet 容器
+****** server.port 程序端口 8080
+****** server.session-timeout 用户会很 session 过期时间，以秒为单位
+****** server.context-path 配置访问路径，默认为 /
+***** 配置 Tomcat
+****** server.tomcat.uri-encodeing 配置 Tomcat 编码，默认为 UTF-8
+****** server.tomcat.compression Tomcat 是否开启压缩，默认关闭 off
+***** 代码配置 Tomcat
+**** SSL 配置
+*** Favicon 配置
+**** application.properties spring.mvc.favicon.enabled=false
+*** WebSocket
+** Spring Boot 的数据访问
+*** Spring Data JPA
+**** 标准化 O/R 映射的注解和接口
+**** 定义数据访问层，继承 JpaRepository
+**** 配置使用 Spring Data JPA @EnableJpaRepositories
+**** 定义查询方法
+***** 属性名查询 按照规定的方法名和参数定义
+***** @NamedQuery 类注解编写 sql 语句
+***** @Query
+****** 接口方法注解编写 sql 语句
+****** @Param 匹配查询参数
+****** @Modifying @Transactional 更新查询
+****** @Specification Criteria 查询
+****** 排序与分页 Page 和 Pageable
+***** 自定义 Repository 的实现
+**** JDBC 的自动配置
+*** Spring Data REST - 将 repository 自动输出为 REST 资源
+**** 继承 JpaRepository ，添加方法注解 @RestResource
+**** 分页，访问路径后添加参数 page=1 size=2
+**** 定制
+***** 根路径 application.properties spring.data.rest.base-path=/api
+***** 节点路径 @RepositoryRestResource
+*** 声名式事务
+**** Spring 的事务机制 - PlatformTransactionManager 接口
+***** JDBC - DataSourceTransactionManager
+***** JPA - JpaTransactionManager
+***** Hibernate - HibernateTransactionManager
+***** JDO - JdoTransactionManager
+***** 分布式事务 - JtaTransactionManager
+*** 数据缓存 Cache
+**** Spring 支持的 CacheManager
+***** SimpleCacheManager 测试用途
+***** ConcurrentMapCacheManager 使用 ConcurrentMap 存储换成
+***** NoOpCacheManager 仅测试用途，不会实际存储缓存
+***** EhCacheCacheManager 使用 EhCache 作为缓冲技术
+***** GuavaCacheManager 使用 Google Guava
+***** HazelcastCacheManager 使用 Hazelcat
+***** JCacheCacheManager
+***** RedisCacheManager
+**** 声名式缓存注解
+***** @Cacheable
+***** @CachePut
+***** @CacheEvict 将一条或多条数据从缓存中删除
+***** @Caching
+**** 开启声名式缓存支持 @EnableCaching
+*** 非关系型数据库 NoSQL
+**** MongoDB
+***** 映射注解支持
+****** @Document
+****** @Id
+****** @DbRef
+****** @Field
+****** @Version
+***** MongoTemplate
+**** Redis
+***** 数据操作模版 RedisTemplate 和 StringRedisTempate
+*** 安全控制 Spring Security
+**** Spring Security 配置
+**** Spring Batch 批处理
+***** 批处理主要组成
+****** JobRepository 注册 Job 容器
+****** JobLauncher 启动 Job 接口
+****** Job 执行任务
+****** Step 步骤包含 ItemReader ItemProcessor ItemWriter
+****** ItemReader 读取数据接口
+****** ItemProcessor 处理数据接口
+****** ItemWriter 输出数据接口
+***** 开启批处理 @EnableBatchProcessing
+***** Job 监听 JobExecutionListener
+***** 计划任务 @EnableScheduling
+*** 异步消息
+**** 队列 queue（点对点）
+**** 主体 topic（发布/订阅式）
+** Spring Boot 开发部署与测试
+*** jar 和 war 形式
+
+
+
 
 
 @endmindmap

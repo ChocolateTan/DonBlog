@@ -1,0 +1,60 @@
+@startmindmap
+* HarmonyOS
+** 工程目录
+*** AppScope中存放应用全局所需要的资源文件
+**** 在AppScope，其中有resources文件夹和配置文件app.json5。AppScope>resources>base中包含element和media两个文件夹，
+**** 其中element文件夹主要存放公共的字符串、布局文件等资源
+**** media存放全局公共的多媒体资源文件
+*** entry是应用的主模块，存放HarmonyOS应用的代码、资源等
+**** src目录中主要包含总的main文件夹，单元测试目录ohosTest，以及模块级的配置文件
+**** main文件夹中，ets文件夹用于存放ets代码，resources文件存放模块内的多媒体及布局文件等，module.json5文件为模块的配置文件
+**** ohosTest是单元测试目录
+**** build-profile.json5是模块级配置信息，包括编译构建配置项
+**** hvigorfile.ts文件是模块级构建脚本
+**** oh-package.json5是模块级依赖配置信息文件
+***** bundleName是包名
+***** vendor是应用程序供应商
+***** versionCode是用于区分应用版本
+***** versionName是版本号
+***** icon对应于应用的显示图标
+***** label是应用名
+**** entryability存放ability文件，用于当前ability应用逻辑和生命周期管理
+**** pages存放UI界面相关代码文件，初始会生成一个Index页面
+**** module.json5是模块的配置文件，包含当前模块的配置信息
+
+*** oh_modules是工程的依赖包，存放工程依赖的源文件
+*** build-profile.json5是工程级配置信息，包括签名、产品配置等
+*** hvigorfile.ts是工程级编译构建任务脚本，hvigor是基于任务管理机制实现的一款全新的自动化构建工具，主要提供任务注册编排，工程模型管理、配置管理等核心能力
+*** oh-package.json5是工程级依赖配置文件，用于记录引入包的配置信息
+** 编程语言
+*** ArkTS ArkTS>TS>JS TS 拓展 JS 语法，添加静态类型定义构建而成，ArkTS 基于 TS 拓展声明式UI，状态管理、并发任务等能力
+**** ArkTS @Component @State @Link父组件@state建立双向绑定，任何一方修改会反映给另一方
+**** ArkTS 基础组件：Text Button Image TextInput 容器组件：Column Row Stack List 
+**** ArkTS 自定义组件
+***** 自定义组件声明周期回调函数：aboutToAppear onPageShow页面显示 onBackPress返回 onPageHide页面消失 aboutToDisappear
+***** 组件状态管理装饰器
+****** @State装饰的变量是组件内部的状态数据，当这些状态数据被修改时，将会调用所在组件的build方法进行UI刷新。
+****** @Prop与@State有相同的语义，但初始化方式不同。@Prop装饰的变量必须使用其父组件提供的@State变量进行初始化，允许组件内部修改@Prop变量，但更改不会通知给父组件，即@Prop属于单向数据绑定。
+****** @Link装饰的变量可以和父组件的@State变量建立双向数据绑定，需要注意的是：@Link变量不能在组件内部进行初始化。
+****** @Builder装饰的方法用于定义组件的声明式UI描述，在一个自定义组件内快速生成多个布局内容。
+*** UIAbility 可以支持多UIAbility，每一个UIAbility实例，都对应于一个最近任务列表中的任务
+**** UIAbility Start, Create, WindowStageCreate, Foreground, BackGround, WindowStageDestroy, Destroy, UIAbility End
+**** UIAbility的启动模式
+***** singleton（单实例模式）singleton启动模式为单实例模式，也是默认情况下的启动模式
+***** multiton（多实例模式）multiton启动模式为多实例模式，每次调用startAbility()方法时，都会在应用进程中创建一个新的该类型UIAbility实例。即在最近任务列表中可以看到有多个该类型的UIAbility实例。这种情况下可以将UIAbility配置为multiton（多实例模式）。
+***** specified（指定实例模式）specified启动模式为指定实例模式，针对一些特殊场景使用（例如文档应用中每次新建文档希望都能新建一个文档实例，重复打开一个已保存的文档希望打开的都是同一个文档实例）。
+*** 管理组件状态
+**** @State 组件内的状态管理
+**** @Prop 从父组件单向同步状态
+**** @Link 与父组件双向同步状态
+**** @Watch 监听状态变化
+*** Web 组件
+**** Web和JavaScript交互
+*****:==Web组件中运行JavaScript
+Web({ src:'https://www.example.com', controller:this.controller }).javaScriptAccess(true);
+*** 保存应用数据
+**** 首选项Preferences，k-v
+**** SQLite数据库
+
+
+@endmindmap

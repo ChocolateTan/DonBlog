@@ -1,0 +1,79 @@
+@startmindmap
+* Flutter
+**: runApp
+<code>
+import 'package:flutter/material.dart'
+
+void main() {
+  runApp(
+    const Center(
+      child: Text(
+        'Hello, world!',
+        textDirection: TextDirection.ltr,
+      ),
+    ),
+  )
+}
+</code>;
+** BasicWidgets
+***: Text
+The Text widget lets you create a run of styled text within your application.;
+***: Row, Column
+These flex widgets let you create flexible layouts in both the horizontal (Row) and vertical (Column) directions. The design of these objects is based on the web's flexbox layout model.;
+***: Stack
+Instead of being linearly oriented (either horizontally or vertically), a Stack widget lets you place widgets on top of each other in paint order. You can then use the Positioned widget on children of a Stack to position them relative to the top, right, bottom, or left edge of the stack. Stacks are based on the web's absolute positioning layout model.;
+***: Container
+The Container widget lets you create a rectangular visual element. A container can be decorated with a BoxDecoration, such as a background, a border, or a shadow. A Container can also have margins, padding, and constraints applied to its size. In addition, a Container can be transformed in three-dimensional space using a matrix.;
+**: 更新 widgets
+如果一个 Widget 会变化（例如由于用户交互），它是有状态的。然而，如果一个 Widget 响应变化，它的父 Widget 只要本身不响应变化，就依然是无状态的;
+*** StatelessWidget
+*** StatefulWidget
+** widget 手势
+*** Tap
+**** onTapDown - 一个可能产生点击事件的指针触摸到屏幕的特定位置。
+**** onTapUp - 一个产生了点击事件的指针停止触摸屏幕的特定位置。
+**** onTap - 一个已经发生的点击事件。
+**** onTapCancel - 之前触发了 onTapDown 事件的指针不会产生点击事件。
+*** Double tap
+**** onDoubleTap - 用户在屏幕同一位置连续快速地点击两次。
+*** Long press
+**** onLongPress - 指针在屏幕的同一位置保持了一段较长时间的触摸状态。
+*** Vertical drag
+**** onVerticalDragStart - 指针已经触摸屏幕并可能开始垂直移动。
+**** onVerticalDragUpdate - 触摸屏幕的指针在垂直方向移动了更多的距离。
+**** onVerticalDragEnd - 之前和屏幕接触并垂直移动的指针不再继续和屏幕接触，并且在和屏幕停止接触的时候以一定的速度移动。
+*** Horizontal drag
+**** onHorizontalDragStart - 指针已经触摸屏幕并可能开始水平移动。
+**** onHorizontalDragUpdate - 触摸屏幕的指针在水平方向移动了更多的距离。
+**** onHorizontalDragEnd - 之前和屏幕接触并水平移动的指针不再继续和屏幕接触，并且在和屏幕停止接触的时候以一定的速度移动。
+-- flame engine
+
+* Dart
+** 基本类型
+*** Numbers (int, double)
+*** Strings (String)
+*** Booleans (bool)
+***: Records ((value1, value2))
+var record = ('first', a: 2, b: true, 'last')
+
+print(record.$1); // Prints 'first'
+print(record.a); // Prints 2
+print(record.b); // Prints true
+print(record.$2); // Prints 'last';
+*** Lists (List, also known as arrays)
+*** Sets (Set)
+*** Maps (Map)
+*** Runes (Runes; often replaced by the characters API)
+*** Symbols (Symbol)
+*** The value null (Null)
+** 类&对象
+*** abstract
+*** base
+*** final
+*** interface
+*** sealed
+*** Mixins 多继承
+*** 拓展方法
+*** 拓展类型
+
+@endmindmap

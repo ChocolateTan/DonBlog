@@ -1,0 +1,5 @@
+@startmindmap
+* Android
+**:VideoView
+在 recyclerview 里面使用需要添加 setZOrderOnTop，否则黑屏;
+@endmindmap

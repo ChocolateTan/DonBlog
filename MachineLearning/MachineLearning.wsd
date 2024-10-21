@@ -1,0 +1,21 @@
+@startmindmap
+*: Machine Learning
+https://developers.google.cn/machine-learning/intro-to-ml/what-is-ml?hl=zh-cn;
+
+** 机器学习系统的类型
+***: 监督式学习
+模型在看到大量数据以及正确答案后就能做出预测 然后在此基础上找出数据中 生成正确答案
+核心概念
+数据
+模型
+训练
+正在评估
+推理;
+**** 回归
+**** 分类
+*** 非监督式学习
+**** 聚类
+*** 强化学习
+*** 生成式 AI
+
+@endmindmap

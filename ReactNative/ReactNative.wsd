@@ -1,0 +1,29 @@
+@startmindmap
+*: ReactNative
+https://reactnative.cn/docs/intro-react;
+left side
+**: 特定平台后缀
+BigButton.ios.js
+BigButton.android.js
+import BigButton from './BigButton'
+
+Container.js # 由 Webpack, Rollup 或者其他打包工具打包的文件
+Container.native.js # 由 React Native 自带打包工具(Metro) 为ios和android 打包的文件;
+
+
+right side
+**: 简介
+React Native 是一个使用React和应用平台的原生功能来构建 Android 和 iOS 应用的开源框架。通过 React Native，您可以使用 JavaScript 来访问移动平台的 API，以及使用 React 组件来描述 UI 的外观和行为：一系列可重用、可嵌套的代码。;
+
+**: 核心组件
+React Native UI 组件	Android 原生视图	iOS 原生视图	Web 标签	说明
+<View>	<ViewGroup>	<UIView>	A non-scrolling <div>	一个支持使用flexbox布局、样式、一些触摸处理和无障碍性控件的容器
+<Text>	<TextView>	<UITextView>	<p>	显示、样式和嵌套文本字符串，甚至处理触摸事件
+<Image>	<ImageView>	<UIImageView>	<img>	显示不同类型的图片
+<ScrollView>	<ScrollView>	<UIScrollView>	<div>	一个通用的滚动容器，可以包含多个组件和视图
+<TextInput>	<EditText>	<UITextField>	<input type="text">	使用户可以输入文本;
+
+** UI布局
+*** Flex：高度和宽度
+*** flexDirection：线性布局
+@endmindmap

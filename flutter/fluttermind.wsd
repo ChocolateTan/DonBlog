@@ -1,5 +1,197 @@
 @startmindmap
 * Flutter
+
+left side
+
+** 常用命令
+***:创建
+flutter create my_app;
+***:分析
+flutter analyze;
+***:测试
+flutter test;
+***:运行
+flutter run;
+***:工具运行 pub
+flutter pub get
+flutter pub outdated
+flutter pub upgrade;
+
+** 杂记
+***沒有 private public 修饰词，加下划线“_”即为私有变量
+***:http请求
+You should avoid directly using dart:io or dart:html to make HTTP requests. 
+Those libraries are platform-dependent and tied to a single implementation.
+<code>
+flutter pub add http
+</code>;
+***:单例
+<code>
+class HttpHelper {
+  static final HttpHelper _singleton = HttpHelper._internal()
+
+  HttpHelper._internal()
+
+  factory HttpHelper() {
+    return _singleton
+  }
+}
+</code>;
+***:Future
+Future<T> 类，其表示一个T类型的异步操作结果。
+如果异步操作不需要结果，则类型为 Future<void>;
+***:cupertinoOverrideTheme 完全禁用了深色模式
+return MaterialApp(
+   ThemeData(
+       brightness: Brightness.light,
+       cupertinoOverrideTheme: CupertinoThemeData(
+          brightness: Brightness.light
+        ),
+      )
+    );
+***:如何更改选择光标颜色
+ThemeData#textSelectionTheme
+https://cloud.tencent.com/developer/ask/sof/918389;
+
+***:Flutter在WEB中加载图片的跨域问题
+https://blog.csdn.net/jingyi__/article/details/135966350;
+
+***:Flutter修改Android项目配置
+build.gradle添加minSdkVersion;
+
+***:关闭键盘
+https://blog.csdn.net/aikongmeng/article/details/129297781
+1.FocusScope.of(context).unfocus()
+2.SystemChannels.textInput.invokeMethod('TextInput.hide')
+3.GestureDetector(
+  onTap: () {
+    FocusScope.of(context).unfocus();
+  },
+  child: Container(
+    // Widget tree here
+  ),
+);
+***:ChangeNotifierProvider
+provider: ^6.0.2
+依赖注入
+ChangeNotifierProvider(
+  create: (context) => ItemNotifier(),
+  child: MaterialApp(...),
+)
+MultiProvider(
+  providers: [
+    ChangeNotifierProvider(create: (context) => ItemNotifier()),
+    Provider(create: (context) => SomeOtherClass()),
+  ],
+  child: const MyApp(),
+)
+ChangeNotifierProvider 接受一个 ChangeNotifier 类，而 Provider 接受一个简单的类。
+Provider 用于我们想要共享值但不想更新侦听器的情况
+访问我们的依赖
+使用 Consumer< T > 当我们想要在值更改时重建 widget 时，我们使用 Consumer< T >。
+必须提供类型 < T > 以便 Provider 可以理解您所指的依赖项
+Consumer<ItemNotifier>(
+  builder: (context, value, child) {...},
+  child: SomeWidget(),
+)
+使用 Provider.of< T >(context)
+当您需要访问依赖项但不想对用户界面进行任何更改时，将使用 Provider.of< T >(context)。
+我们可以使用 Consumer< T > ，但这会浪费资源。我们只是将监听设置为 false，
+表示我们不需要监听来自 ChangeNotifier 的更新。
+Provider.of<ItemNotifier>(context, listen: false).delete(0);
+
+***:Future Steam
+https://blog.csdn.net/holyli1134516796/article/details/136400430
+Future 表示一个不会立即完成的计算过程
+Stream 是一系列异步事件的序列
+Future和Stream的本质区别是：Future中的任务会加入下一轮事件循环，而Stream中的任务则是加入微任务队列
+一个Stream可以通过Stream.fromFuture方法将一个Future转换为Stream， 也可以通过Stream.fromFutures将多个Future添加到Stream中
+;
+
+***:Stream
+https://wizardforcel.gitbooks.io/gsyflutterbook/content/Flutter-11.html
+Flutter中 Stream 、StreamController 、StreamSink 和 StreamSubscription 都是 abstract 对象，他们对外抽象出接口，而内部实现对象大部分都是 _ 开头的如 _SyncStreamController 、ControllerStream 等私有类，在这基础上整个流程概括起来就是：
+有一个事件源叫 Stream，为了方便控制 Stream ，官方提供了使用 StreamController 作为管理；同时它对外提供了 StreamSink 对象作为事件输入口，可通过 sink 属性访问; 又提供 stream 属性提供 Stream 对象的监听和变换，最后得到的 StreamSubscription 可以管理事件的订阅。
+所以我们可以总结出：
+StreamController ：如类名描述，用于整个 Stream 过程的控制，提供各类接口用于创建各种事件流。
+StreamSink：一般作为事件的入口，提供如 add ， addStream 等。
+Stream：事件源本身，一般可用于监听事件或者对事件进行转换，如 listen 、 where 。
+StreamSubscription：事件订阅后的对象，表面上用于管理订阅过等各类操作，如 cacenl 、pause ，同时在内部也是事件的中转关键;
+
+***:flutter本地持久化存储
+https://juejin.cn/post/7030702503893139487;
+
+***:Mixin
+https://juejin.cn/post/7344742642150981670
+Mixin是一种在多个类中重用代码的方法，它允许你将一个类的方法和属性“混入”到另一个类中，而不需要使用传统的继承。在Dart中，mixin通过mixin关键字定义，并通过with关键字在其他类中使用。Mixin可以提供一种灵活的方式来组合多个类的行为，而不会引入复杂的继承结构。
+在Flutter中，mixin经常用于组合不同的功能到一个widget中，例如，处理动画、手势识别等。Mixin可以让你将这些功能分离到不同的mixin中，然后根据需要将它们混入到widget类中，这样可以提高代码的可重用性和可维护性。;
+
+right side
+
+** Dart
+*** 变量
+**** 变量特点
+*****:空安全
+String? name  // Nullable type. Can be `null` or string.
+String name   // Non-nullable type. Cannot be `null` but can be string.
+
+<code>
+//直接使用.来最终获取 c 的变量 value，为空时返回 unknown
+  if (a != null && a.bMember != null && a.bMember.cMember != null) {
+    String value = a.bMember.cMember.value
+    if (value == null) {
+      value = 'unknown'
+    }
+    print(value)
+  } else {
+    print('unknown')
+  }
+
+  //dart 使用?.来最终获取 c 的变量 value，为空时使用 ?? 返回 unknown
+  print(a?.bMember?.cMember?.value??'unknown')
+</code>;
+***** 修饰词
+****** late 延后初始化
+****** static 声明类的成员变量，使得多个相同类型的类对象共享同一个成员变量的实例
+****** final 其声明的变量在赋值之后就不再改变，它并不要求=的右边是编译时常数
+****** const 必须在声明变量时赋值，一旦赋值就不允许修改，而声明值一定要是编译时常数
+
+**** 基本类型
+***** Numbers (int, double)
+***** Strings (String)
+***** Booleans (bool)
+*****: Records ((value1, value2))
+var record = ('first', a: 2, b: true, 'last')
+
+print(record.$1); // Prints 'first'
+print(record.a); // Prints 2
+print(record.b); // Prints true
+print(record.$2); // Prints 'last';
+***** Lists (List, also known as arrays)
+***** Sets (Set)
+***** Maps (Map)
+***** Runes (Runes; often replaced by the characters API)
+***** Symbols (Symbol)
+***** The value null (Null)
+*** 类&对象
+****:abstract
+抽象类 不能创建实例对象 , 其作用是用于定义接口;
+**** base
+**** final
+**** interface
+**** sealed
+**** Mixins 多继承
+**** 拓展方法
+**** 拓展类型
+*** 方法
+****:闭包
+不污染全局
+实现的功能：
+1.常驻内存 
+2.不污染全局
+概念：函数嵌套函数, 内部函数会调用外部函数的变量或参数, 变量或参数不会被系统回收(不会释放内存)
+写法：函数嵌套函数，并return 里面的函数，这样就形成了闭包。;
+
 **: runApp
 <code>
 import 'package:flutter/material.dart'
@@ -16,10 +208,47 @@ void main() {
 }
 </code>;
 ** BasicWidgets
+*** 布局类
+***:布局原理与约束 constraints
+子组件都必须先遵守父组件的约束，
+在此基础上再应用子组件约束，
+相当于父组件的约束和自身的大小求一个交集;
+****:BoxConstraints
+用于对子组件添加额外的约束;
+****:UnconstrainedBox
+子组件将不再受到约束，大小完全取决于自己;
+**** AspectRaio长宽比
+**** LimitedBox最大宽高
+**** FractionallySizeBox根据父容器宽高的百分比来设置子组件宽高
+
+*** 线性布局
+**** row
+**** column
+*** 弹性布局
+**** flex
+*** 流式布局
+**** wrap
+**** flow
+*** 层叠布局
+**** stack
+**** positioned
+*** 对齐与相对定位 align
+*** layoutbuilder afterlayout
+
 ***: Text
 The Text widget lets you create a run of styled text within your application.;
+***: EditableText
+实现了一个多行文本编辑字段，支持文本选择、光标控制、输入和文本样式等;
+***: TextInput
+文本输入组件，即输入框
+https://juejin.cn/post/6869724792996495374;
 ***: Row, Column
 These flex widgets let you create flexible layouts in both the horizontal (Row) and vertical (Column) directions. The design of these objects is based on the web's flexbox layout model.;
+****:Row
+crossAxisAlignment-CrossAxisAlignment.center 垂直居中;
+***:Wrap
+平分;
+
 ***: Stack
 Instead of being linearly oriented (either horizontally or vertically), a Stack widget lets you place widgets on top of each other in paint order. You can then use the Positioned widget on children of a Stack to position them relative to the top, right, bottom, or left edge of the stack. Stacks are based on the web's absolute positioning layout model.;
 ***: Container
@@ -28,6 +257,21 @@ The Container widget lets you create a rectangular visual element. A container c
 如果一个 Widget 会变化（例如由于用户交互），它是有状态的。然而，如果一个 Widget 响应变化，它的父 Widget 只要本身不响应变化，就依然是无状态的;
 *** StatelessWidget
 *** StatefulWidget
+****:生命周期
+createState->initState->didChangeDependenices->build->deactivate->dispose
+InheritedWidget->didChangeDependenices
+setState->build
+reassemble->didUpdateWidget->build;
+****:生命周期解析
+1. createState(): 当StatefulWidget被插入到Widget树中时，会调用createState()方法来创建与之关联的State对象。
+2. initState(): 在createState()方法后立即调用，用于初始化State对象，可以在这个方法中进行一些初始化操作，如订阅事件、初始化变量等。
+3. didChangeDependencies(): 在initState()之后调用，用于处理依赖关系的变化，比如获取父Widget传递的数据。
+4. build(): 在didChangeDependencies()之后调用，用于构建Widget的UI。
+5. didUpdateWidget(): 当父Widget发生变化时，会调用didUpdateWidget()方法，可以在这个方法中更新State对象的一些属性。
+6. setState(): 当需要更新State对象时，可以调用setState()方法，它会触发build()方法重新构建UI。
+7. deactivate(): 当StatefulWidget被移除出Widget树时，会调用deactivate()方法，可以在这个方法中做一些清理工作。
+8. dispose(): 当StatefulWidget被永久移除出Widget树时，会调用dispose()方法，可以在这个方法中释放资源、取消订阅等。;
+
 ** widget 手势
 *** Tap
 **** onTapDown - 一个可能产生点击事件的指针触摸到屏幕的特定位置。
@@ -46,34 +290,15 @@ The Container widget lets you create a rectangular visual element. A container c
 **** onHorizontalDragStart - 指针已经触摸屏幕并可能开始水平移动。
 **** onHorizontalDragUpdate - 触摸屏幕的指针在水平方向移动了更多的距离。
 **** onHorizontalDragEnd - 之前和屏幕接触并水平移动的指针不再继续和屏幕接触，并且在和屏幕停止接触的时候以一定的速度移动。
--- flame engine
+' -- flame engine
 
-* Dart
-** 基本类型
-*** Numbers (int, double)
-*** Strings (String)
-*** Booleans (bool)
-***: Records ((value1, value2))
-var record = ('first', a: 2, b: true, 'last')
+** 命名规范
+***:文件命名
+所有文件（包括资源）采用小写+下划线命名，因为部分系统不识别大小写;
+***:类命名
+使用大驼峰命名。同样适用于枚举和扩展函数;
+***:变量命名
+使用小驼峰命名;
 
-print(record.$1); // Prints 'first'
-print(record.a); // Prints 2
-print(record.b); // Prints true
-print(record.$2); // Prints 'last';
-*** Lists (List, also known as arrays)
-*** Sets (Set)
-*** Maps (Map)
-*** Runes (Runes; often replaced by the characters API)
-*** Symbols (Symbol)
-*** The value null (Null)
-** 类&对象
-*** abstract
-*** base
-*** final
-*** interface
-*** sealed
-*** Mixins 多继承
-*** 拓展方法
-*** 拓展类型
 
 @endmindmap

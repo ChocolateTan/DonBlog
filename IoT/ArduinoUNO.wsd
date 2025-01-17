@@ -1,0 +1,42 @@
+@startmindmap
+* ArduinoUNO
+**: Arduino 学习网站
+https://www.w3cschool.cn/arduino/arduino_program_structure.html
+http://www.taichi-maker.com/homepage/arduino-basic-tutorial-index/
+;
+
+**: Arduion数据类型;
+' *** boolean(1字节)
+' *** char(1字节)
+' *** unsigned char(1字节)
+
+**: 
+1.unsigned char，占用一个字节内存0到255
+2.一个字节存储8位无符号数（unsigned），0到255
+;
+** 外部电流通过芯片引脚向芯片内‘流入’称为灌电流（被灌入）；反之如果内部电流通过芯片引脚从芯片内‘流出’称为拉电流（被拉出）
+** Arduion时间函数
+*** delay()函数的工作方式非常简单。它接受单个整数（或数字）参数。此数字表示时间（以毫秒为单位）。
+*** delayMicroseconds()函数接受单个整数（或数字）参数。一毫秒内有一千微秒，一秒内有一百万微秒。
+*** millis() 此函数用于返回Arduino板开始运行当前程序时的毫秒数。
+*** micros()函数返回Arduino板开始运行当前程序时的微秒数。该数字在大约70分钟后溢出，即回到零。
+@endmindmap
+
+' Uno A4 (SDA), A5 (SCL)
+' I2C总线由两个信号组成 - SCL和SDA。SCL是时钟信号，SDA是数据信号。当前总线主机总是产生时钟信号。一些从设备可能迫使时钟低电平以延迟主设备发送更多数据（或者在主设备尝试将数据写出之前请求更多的时间来准备数据）
+
+' RX==receive，接收
+' TX==Transmit
+
+' 引脚A存储 RX 接收
+
+' Arduino Uno的引脚0-13用作数字输入/输出引脚。其中，引脚13连接到板载的LED指示灯；引脚3、5、6、9、10、11具有PWM功能
+
+' 串行（TTL） - 数字引脚0和1是Arduino Uno的串行引脚
+' 串行通信用于在Arduino板和其他串行设备（如 计算机， 显示器，传感器等）之间交换数据。每块Arduino板至少有一个串口。串行通信发生在数字引脚0（RX）和1（TX）以及USB上。 Arduino也支持通过数字引脚与SoftwareSerial Library进行串行通信。这允许用户连接多个支持串行的设备，并保留主串行端口可用于USB
+
+' SPI SS / SCK / MISO / MOSI引脚是SPI通信的专用引脚。它们可以在Arduino Uno的数字引脚10-13和ICSP插头上找到
+' I2C SCL / SDA引脚是I2C通信的专用引脚。在Arduino Uno上，它们可以在模拟引脚A4和A5上找到, I2C总线上的每个器件都有一个唯一的地址，最多可以在同一条总线上连接255个器件
+' Aref - 模拟输入的参考电压
+
+在Arduino UNO中，引脚A4 = SDA，引脚A5 = SCL

@@ -1,0 +1,8 @@
+@startmindmap
+* Mockito
+** @Mock 用 mockito 框架创建一个模拟的实例类，而不是去真的创建需要的对象
+** @MockBean 用 @MockBean 可以添加一个模拟的 Bean 到 Spring 应用程序上下文中。通常与 @SpringBootTest 或 @WebMvcTest 注解一起使用
+** @InjectMocks 它必须与 @Mock 或 @MockBean 注解一起使用。Mockito 会先初始化所有的模拟对象,然后将它们注入到使用 @InjectMocks 注解标注的被测试对象中
+** @Spy 够调用所监视对象的所有正常方法，同时仍然跟踪每一次交互
+** @Captor 用于捕获方法参数值，来用于进一步做断言验证
+@endmindmap

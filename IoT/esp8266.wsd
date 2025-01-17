@@ -1,0 +1,10 @@
+@startmindmap
+* esp8266
+**: 配置 Arduino esp8266 开发环境
+1.Arduino->setting->click for a list of unofficial board support URLs
+https://arduino.esp8266.com/stable/package_esp8266com_index.json
+2.安装 ESP8266 程序库
+
+https://sites.google.com/site/arduinochutiyan/home/nodemcu/arduino-%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE-%E5%AE%89%E8%A3%9Desp8266%E9%96%8B%E7%99%BC%E6%9D%BF;
+
+@endmindmap
